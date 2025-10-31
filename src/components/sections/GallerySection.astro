@@ -1,0 +1,261 @@
+---
+import { t } from '../../i18n/translations';
+
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+
+interface GalleryItem {
+  id: string;
+  src: string;
+  thumb: string;
+  alt: string;
+  categories: string[];
+}
+
+// Datos de galería
+const galleryItems: GalleryItem[] = [
+  {
+    id: '1',
+    src: '/project1_lg.jpg',
+    thumb: '/project1.jpg',
+    alt: 'project1',
+    categories: ['cardiology', 'urology'],
+  },
+  {
+    id: '2',
+    src: '/project2_lg.jpg',
+    thumb: '/project2.jpg',
+    alt: 'project2',
+    categories: ['cardiology', 'neurology'],
+  },
+  {
+    id: '3',
+    src: '/project3_lg.jpg',
+    thumb: '/project3.jpg',
+    alt: 'project3',
+    categories: ['urology', 'pulmonary'],
+  },
+  {
+    id: '4',
+    src: '/project4_lg.jpg',
+    thumb: '/project4.jpg',
+    alt: 'project4',
+    categories: ['neurology', 'traumatology'],
+  },
+  {
+    id: '5',
+    src: '/project5_lg.jpg',
+    thumb: '/project5.jpg',
+    alt: 'project5',
+    categories: ['cardiology', 'pulmonary'],
+  },
+  {
+    id: '6',
+    src: '/project6_lg.jpg',
+    thumb: '/project6.jpg',
+    alt: 'project6',
+    categories: ['neurology', 'traumatology'],
+  },
+  {
+    id: '7',
+    src: '/project7_lg.jpg',
+    thumb: '/project7.jpg',
+    alt: 'project7',
+    categories: ['urology', 'pulmonary', 'traumatology'],
+  },
+];
+
+interface Category {
+  key: string;
+  labelKey: string;
+}
+
+const categoryConfig: Category[] = [
+  { key: '*', labelKey: 'sections.gallery.categories.all' },
+  { key: 'cardiology', labelKey: 'sections.gallery.categories.cardiology' },
+  { key: 'neurology', labelKey: 'sections.gallery.categories.neurology' },
+  { key: 'urology', labelKey: 'sections.gallery.categories.urology' },
+  { key: 'pulmonary', labelKey: 'sections.gallery.categories.pulmonary' },
+  { key: 'traumatology', labelKey: 'sections.gallery.categories.traumatology' },
+];
+---
+
+<section id="gallery">
+  <div class="st-height-b120 st-height-lg-b50"></div>
+  <div class="container">
+    <div class="st-section-heading st-style1">
+      <h2 class="st-section-heading-title">{t('sections.gallery.title', lang)}</h2>
+      <div class="st-seperator">
+        <div
+          class="st-seperator-left wow fadeInLeft"
+          data-wow-duration="1s"
+          data-wow-delay="0.2s"
+        ></div>
+        <div class="st-seperator-center">
+          <img src="/icons/4.png" alt="icon" />
+        </div>
+        <div
+          class="st-seperator-right wow fadeInRight"
+          data-wow-duration="1s"
+          data-wow-delay="0.2s"
+        ></div>
+      </div>
+      <div class="st-section-heading-subtitle">{t('sections.gallery.subtitle', lang)}</div>
+    </div>
+    <div class="st-height-b40 st-height-lg-b40"></div>
+  </div>
+  <div class="container">
+    <div class="st-portfolio-wrapper">
+      {/* Isotope Filter */}
+      <div class="st-isotop-filter st-style1 text-center">
+        <ul class="st-mp0">
+          {categoryConfig.map((cat) => (
+            <li key={cat.key} class={cat.key === '*' ? 'active' : ''}>
+              <a
+                href="#"
+                data-filter={cat.key === '*' ? '*' : `.${cat.key}`}
+              >
+                {t(cat.labelKey, lang)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Gallery Grid with LightGallery */}
+      <div
+        class="st-isotop st-style1 st-port-col-3 st-has-gutter st-lightgallery"
+        id="gallery-lightgallery"
+      >
+        <div class="st-grid-sizer"></div>
+        {galleryItems.map((item) => (
+          <div key={item.id} class={`st-isotop-item ${item.categories.join(' ')}`}>
+            <a
+              href={item.src}
+              class="st-project st-zoom st-lightbox-item st-link-hover-wrap"
+            >
+              <div class="st-project-img st-zoom-in">
+                <img src={item.thumb} alt={item.alt} />
+              </div>
+              <span class="st-link-hover">
+                <i class="fas fa-arrows-alt"></i>
+              </span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="st-height-b120 st-height-lg-b50"></div>
+</section>
+
+<script>
+  // Inicializar Isotope para el layout masonry
+  function initIsotope() {
+    const $ = (window as any).$;
+
+    if (!$) {
+      console.warn('jQuery is not available');
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const $grid = $('.st-isotop');
+      if ($grid.length && $.fn.isotope) {
+        $grid.isotope({
+          itemSelector: '.st-isotop-item',
+          transitionDuration: '0.60s',
+          percentPosition: true,
+          masonry: {
+            columnWidth: '.st-grid-sizer',
+          },
+        });
+      }
+    }, 150);
+
+    return timer;
+  }
+
+  // Inicializar lightGallery
+  function initLightGallery() {
+    const $ = (window as any).$;
+
+    if (!$) {
+      console.warn('jQuery is not available');
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const $gallery = $('#gallery-lightgallery');
+      if ($gallery.length) {
+        // Destruir instancia anterior si existe
+        const galleryElement = document.getElementById('gallery-lightgallery') as any;
+        if (galleryElement && galleryElement.lg) {
+          try {
+            galleryElement.lg.destroy(true);
+          } catch (e) {
+            console.log('No previous instance to destroy');
+          }
+        }
+
+        // Inicializar lightGallery
+        $gallery.lightGallery({
+          selector: '.st-lightbox-item',
+          thumbnail: true,
+          showThumbByDefault: true,
+          speed: 500,
+          zoom: true,
+          mode: 'lg-fade',
+        });
+      }
+    }, 100);
+
+    return timer;
+  }
+
+  // Manejador de filtrado
+  function initFilterButtons() {
+    const $ = (window as any).$;
+    if (!$ || !$.fn.isotope) return;
+
+    document.querySelectorAll('.st-isotop-filter a').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const filterValue = (e.target as HTMLElement).getAttribute('data-filter') || '*';
+
+        // Actualizar clase activa
+        document.querySelectorAll('.st-isotop-filter li').forEach(li => {
+          li.classList.remove('active');
+        });
+        (e.target as HTMLElement).closest('li')?.classList.add('active');
+
+        // Aplicar filtro Isotope
+        $('.st-isotop').isotope({ filter: filterValue });
+      });
+    });
+  }
+
+  // Esperar a que jQuery esté disponible
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkInterval = setInterval(() => {
+      const $ = (window as any).$;
+      if ($ && $.fn.isotope && $.fn.lightGallery) {
+        initIsotope();
+        initLightGallery();
+        initFilterButtons();
+        clearInterval(checkInterval);
+      }
+    }, 100);
+
+    // Timeout para evitar loops infinitos
+    setTimeout(() => clearInterval(checkInterval), 5000);
+  });
+
+  // Trigger WOW animations
+  if ((window as any).WOW) {
+    new (window as any).WOW().init();
+  }
+</script>

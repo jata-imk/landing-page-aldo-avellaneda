@@ -1,0 +1,176 @@
+{
+  "header": {
+    "topHeader": {
+      "email": "info@nischinto.com",
+      "phone": "+01 - 234 567 890"
+    },
+    "nav": {
+      "home": "Inicio",
+      "about": "Acerca",
+      "department": "Departamento",
+      "doctors": "Doctores",
+      "gallery": "Galería",
+      "pricing": "Precios",
+      "blog": "Blog",
+      "contact": "Contacto",
+      "appointment": "Cita"
+    },
+    "blogSubmenu": {
+      "rightSidebar": "Blog Barra Derecha",
+      "leftSidebar": "Blog Barra Izquierda",
+      "noSidebar": "Blog Sin Barra",
+      "detailsRightSidebar": "Detalles Blog Barra Derecha",
+      "detailsLeftSidebar": "Detalles Blog Barra Izquierda",
+      "detailsNoSidebar": "Detalles Blog Sin Barra"
+    }
+  },
+  "sections": {
+    "hero": {
+      "words": ["Muletas.", "Laboratorio.", "Cardiología.", "Dentista.", "Neurología."],
+      "titlePart1": "Obtén la mejor calidad",
+      "titlePart2": "de tratamiento para",
+      "subtitle": "El arte de la medicina consiste en entretener al paciente mientras la naturaleza cura la enfermedad.<br />El tratamiento sin prevención es simplemente insostenible.",
+      "button": "Cita"
+    },
+    "about": {
+      "title": "Quiénes Somos",
+      "subtitle": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y composición.<br />Lorem Ipsum es el texto ficticio estándar de la industria.",
+      "content": {
+        "title": "Un hospital es una institución de atención médica que proporciona tratamiento especializado",
+        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid unt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc laboris nisi ut aliquip. Commodo consequat.",
+        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid unt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamc laboris nisi ut aliquip. Commodo consequat. Sed do eiusmod tempor incidid unt labore et dolore magna aliqua.",
+        "avatar": {
+          "name": "David Ambrose",
+          "designation": "Fundador y Director"
+        }
+      },
+      "schedule": {
+        "title": "Horario Semanal",
+        "days": {
+          "monday": "Lunes",
+          "tuesday": "Martes",
+          "wednesday": "Miércoles",
+          "thursday": "Jueves",
+          "friday": "Viernes",
+          "saturday": "Sábado",
+          "sunday": "Domingo"
+        },
+        "hours": {
+          "monday": "8:00am–7:00pm",
+          "tuesday": "9:00am–6:00pm",
+          "wednesday": "9:00am–6:00pm",
+          "thursday": "8:00am–7:00pm",
+          "friday": "8:00am–7:00pm",
+          "saturday": "9:00am–5:00pm",
+          "sunday": "9:00am–3:00pm"
+        }
+      },
+      "call": {
+        "title": "Llamar Ahora",
+        "number": "(+01) - 234 567 890"
+      }
+    },
+    "appointment": {
+      "title": "Agendar una Cita",
+      "subtitle": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y composición. Lorem Ipsum es el texto ficticio estándar de la industria."
+    },
+    "gallery": {
+      "title": "Ver Nuestra Galería",
+      "subtitle": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y composición. Lorem Ipsum es el texto ficticio estándar de la industria.",
+      "categories": {
+        "all": "Todas",
+        "cardiology": "Cardiología",
+        "neurology": "Neurología",
+        "urology": "Urología",
+        "pulmonary": "Neumología",
+        "traumatology": "Traumatología"
+      }
+    },
+    "testimonials": {
+      "title": "¿Qué Dicen las Personas?",
+      "subtitle": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y composición. Lorem Ipsum es el texto ficticio estándar de la industria.",
+      "items": [
+        {
+          "name": "Ralph Jones",
+          "designation": "Diseñador UX",
+          "text": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y composición. Lorem Ipsum es el texto ficticio estándar de la industria.",
+          "image": "/avatar2.png"
+        },
+        {
+          "name": "Francis Jara",
+          "designation": "Biógrafo",
+          "text": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y composición. Lorem Ipsum es el texto ficticio estándar de la industria.",
+          "image": "/avatar3.png"
+        },
+        {
+          "name": "David Baer",
+          "designation": "Ejecutivo",
+          "text": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y composición. Lorem Ipsum es el texto ficticio estándar de la industria.",
+          "image": "/avatar4.png"
+        }
+      ]
+    }
+  },
+  "forms": {
+    "appointment": {
+      "fullName": "Nombre Completo",
+      "fullNamePlaceholder": "Juan Pérez",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "ejemplo@gmail.com",
+      "phone": "Número de Teléfono",
+      "phonePlaceholder": "+34 123 45 678",
+      "date": "Fecha de la Cita",
+      "department": "Departamento",
+      "departmentPlaceholder": "Selecciona un departamento",
+      "doctor": "Médico",
+      "doctorPlaceholder": "Selecciona un médico",
+      "message": "Mensaje",
+      "messagePlaceholder": "Escribe algo aquí...",
+      "submit": "Agendar Cita"
+    }
+  },
+  "departments": {
+    "dentalCare": "Odontología",
+    "neurology": "Neurología",
+    "crutches": "Ortopedia",
+    "cardiology": "Cardiología",
+    "pulmonary": "Neumología",
+    "xray": "Rayos X",
+    "rehabilitation": "Rehabilitación",
+    "laboratoryAnalysis": "Análisis de Laboratorio",
+    "faceLiftSurgery": "Cirugía de Estiramiento Facial",
+    "liposuction": "Liposucción"
+  },
+  "doctors": {
+    "johnDoe": "Dr. Juan Pérez",
+    "makRushi": "Dr. Marcos Rodríguez",
+    "mohoshinKabir": "Dr. Mohoshin Kabir",
+    "nayonBorua": "Dr. Nayon Borua",
+    "raselIslam": "Dr. Rasel Islam",
+    "mahidIslam": "Dr. Mahid Islam"
+  },
+  "footer": {
+    "description": "Lorem ipsum dolor sit consectet adipisicing sed do eiusmod temp incididunt ut labore. Lorem Ipsum es simplemente ficticio.",
+    "usefulLinks": {
+      "title": "Enlaces Útiles",
+      "faqs": "Preguntas Frecuentes",
+      "blog": "Blog",
+      "timetable": "Horario Semanal",
+      "terms": "Términos y Condiciones"
+    },
+    "departments": {
+      "title": "Departamentos"
+    },
+    "contacts": {
+      "title": "Contactos",
+      "addressLabel": "Dirección:",
+      "address": "1223 Fulton Street San Diego CA 941-23 USA",
+      "emailLabel": "Correo:",
+      "email": "nischinto@gmail.com",
+      "phoneLabel": "Teléfono:",
+      "phone1": "(+01) - 234 567 890",
+      "phone2": "(+01) - 345 678 901"
+    },
+    "copyright": "Derechos de autor 2021. Diseño por Laralink"
+  }
+}

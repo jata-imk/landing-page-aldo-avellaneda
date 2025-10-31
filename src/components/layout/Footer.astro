@@ -1,0 +1,111 @@
+---
+import { t } from '../../i18n/translations';
+
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<footer class="st-site-footer st-sticky-footer st-dynamic-bg" data-src="/footer-bg.png">
+  {/* Start Footer - Copy from template original */}
+  <div class="st-main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="st-footer-widget">
+            <div class="st-text-field">
+              <img src="/footer-logo.png" alt="Nischinto" class="st-footer-logo" />
+              <div class="st-height-b25 st-height-lg-b25"></div>
+              <div class="st-footer-text">{t('footer.description', lang)}</div>
+              <div class="st-height-b25 st-height-lg-b25"></div>
+              <ul class="st-social-btn st-style1 st-mp0">
+                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fab fa-pinterest-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="st-footer-widget">
+            <h2 class="st-footer-widget-title">{t('footer.usefulLinks.title', lang)}</h2>
+            <ul class="st-footer-widget-nav st-mp0">
+              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('footer.usefulLinks.faqs', lang)}</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('footer.usefulLinks.blog', lang)}</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('footer.usefulLinks.timetable', lang)}</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('footer.usefulLinks.terms', lang)}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="st-footer-widget">
+            <h2 class="st-footer-widget-title">{t('footer.departments.title', lang)}</h2>
+            <ul class="st-footer-widget-nav st-mp0">
+              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('departments.rehabilitation', lang)}</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('departments.laboratoryAnalysis', lang)}</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('departments.faceLiftSurgery', lang)}</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('departments.liposuction', lang)}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="st-footer-widget">
+            <h2 class="st-footer-widget-title">{t('footer.contacts.title', lang)}</h2>
+            <ul class="st-footer-contact-list st-mp0">
+              <li><span class="st-footer-contact-title">{t('footer.contacts.addressLabel', lang)}</span> {t('footer.contacts.address', lang)}
+              </li>
+              <li><span class="st-footer-contact-title">{t('footer.contacts.emailLabel', lang)}</span> {t('footer.contacts.email', lang)}</li>
+              <li><span class="st-footer-contact-title">{t('footer.contacts.phoneLabel', lang)}</span> {t('footer.contacts.phone1', lang)} <br />{t('footer.contacts.phone2', lang)}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="st-copyright-wrap">
+    <div class="container">
+      <div class="st-copyright-in">
+        <div class="st-left-copyright">
+          <div class="st-copyright-text">{t('footer.copyright', lang)}</div>
+        </div>
+        <div class="st-right-copyright">
+          <div id="st-backtotop" style={{ cursor: 'pointer' }}>
+            <i class="fas fa-angle-up"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/* End Footer */}
+</footer>
+
+<script>
+  // Back to top functionality
+  const backToTopBtn = document.getElementById('st-backtotop');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Dynamic background for footer
+  const footerBg = document.querySelector('.st-dynamic-bg');
+  if (footerBg) {
+    const bgSrc = footerBg.getAttribute('data-src');
+    if (bgSrc) {
+      (footerBg as HTMLElement).style.backgroundImage = `url(${bgSrc})`;
+      (footerBg as HTMLElement).style.backgroundSize = 'cover';
+      (footerBg as HTMLElement).style.backgroundPosition = 'center';
+      (footerBg as HTMLElement).style.backgroundAttachment = 'fixed';
+    }
+  }
+</script>
+
+<style>
+  footer.st-dynamic-bg {
+    position: relative;
+  }
+</style>

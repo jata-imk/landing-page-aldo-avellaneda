@@ -1,0 +1,30 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import AboutSection from '../../components/sections/AboutSection.astro';
+import AppointmentSection from '../../components/sections/AppointmentSection.astro';
+import GallerySection from '../../components/sections/GallerySection.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+
+const title = 'Dr. Juan Pérez - Cardiology | Nischinto Clinic';
+const description = 'Professional cardiology and general medicine service. Dr. Juan Pérez - Cardiology Specialist in San Diego.';
+const lang = 'en';
+---
+
+<MainLayout {title} {description} {lang} ogImage="/hero-img.png">
+  <div class="st-content">
+    <Header {lang} />
+
+    <main>
+      <HeroSection {lang} />
+      <AboutSection {lang} />
+      <AppointmentSection {lang} />
+      <GallerySection {lang} />
+      <TestimonialsSection {lang} />
+    </main>
+
+    <Footer {lang} />
+  </div>
+</MainLayout>

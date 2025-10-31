@@ -1,0 +1,150 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  lang: "es" | "en";
+  ogImage?: string;
+}
+
+const { title, description, lang, ogImage = "/hero-img.png" } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  name: "Dr. Juan Pérez",
+  specialty: "Cardiología",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1223 Fulton Street",
+    addressLocality: "San Diego",
+    postalCode: "941-23",
+    addressCountry: "US",
+  },
+  telephone: "+01-234-567-890",
+  email: "info@nischinto.com",
+};
+
+const canonicalURL = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site)
+  : new URL(Astro.url.pathname, "https://example.com");
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content={Astro.site
+        ? new URL(ogImage, Astro.site).href
+        : `https://example.com${ogImage}`}
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={Astro.site
+        ? new URL(ogImage, Astro.site).href
+        : `https://example.com${ogImage}`}
+    />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <!-- Google Site Verification (Actualizar con tu código) -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Preload fonts y recursos críticos -->
+    <link rel="preload" href="/styles/bootstrap.min.css" as="style" />
+
+    <!-- Facebook Pixel (Actualizar con tu Pixel ID) -->
+    <!-- <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1234567890'); // TODO: Cambiar con tu Pixel ID
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1234567890&ev=PageView&noscript=1" />
+    </noscript> -->
+
+    <!-- Google Analytics 4 (Actualizar con tu GA ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX'); // TODO: Cambiar con tu GA ID
+    </script> -->
+
+    <!-- Global Styles -->
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scripts globales jQuery y librerías -->
+    <script src="/js/jquery-1.12.4.min.js" is:inline></script>
+    <script src="/js/jQueryUi.js" is:inline></script>
+    <script src="/js/isotope.pkg.min.js" is:inline></script>
+    <script src="/js/lightgallery.min.js" is:inline></script>
+    <script src="/js/jquery.slick.min.js" is:inline></script>
+
+    <!-- WOW.js para animaciones -->
+    <script src="/js/wow.min.js" is:inline></script>
+    <script is:inline>
+      // Inicializar sticky header
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector(".st-sticky-header");
+        if (window.scrollY >= 10) {
+          header?.classList.add("st-sticky-active");
+        } else {
+          header?.classList.remove("st-sticky-active");
+        }
+      });
+
+      // Smooth scroll para enlaces internos
+      document.querySelectorAll("a.st-smooth-move").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href");
+          if (href?.startsWith("#")) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
