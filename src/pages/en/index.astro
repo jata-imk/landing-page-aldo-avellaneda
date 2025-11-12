@@ -6,7 +6,9 @@ import HeroSection from '../../components/sections/HeroSection.astro';
 import AboutSection from '../../components/sections/AboutSection.astro';
 import AppointmentSection from '../../components/sections/AppointmentSection.astro';
 import GallerySection from '../../components/sections/GallerySection.astro';
+import WhyChooseSection from '../../components/sections/WhyChooseSection.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import MapSection from '../../components/sections/MapSection.astro';
 
 const title = 'Dr. Juan Pérez - Cardiology | Nischinto Clinic';
 const description = 'Professional cardiology and general medicine service. Dr. Juan Pérez - Cardiology Specialist in San Diego.';
@@ -22,9 +24,11 @@ const lang = 'en';
       <AboutSection {lang} />
       <AppointmentSection {lang} />
       <GallerySection {lang} />
+      <WhyChooseSection {lang} />
       <TestimonialsSection {lang} />
     </main>
 
+    <MapSection {lang} />
     <Footer {lang} />
   </div>
 </MainLayout>

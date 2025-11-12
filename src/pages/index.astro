@@ -1,16 +1,19 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
-import HeroSection from '../components/sections/HeroSection.astro';
-import AboutSection from '../components/sections/AboutSection.astro';
-import AppointmentSection from '../components/sections/AppointmentSection.astro';
-import GallerySection from '../components/sections/GallerySection.astro';
-import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import AboutSection from "../components/sections/AboutSection.astro";
+import AppointmentSection from "../components/sections/AppointmentSection.astro";
+import GallerySection from "../components/sections/GallerySection.astro";
+import WhyChooseSection from "../components/sections/WhyChooseSection.astro";
+import TestimonialsSection from "../components/sections/TestimonialsSection.astro";
+import MapSection from "../components/sections/MapSection.astro";
 
-const title = 'Dr. Juan Pérez - Cardiología | Clínica Nischinto';
-const description = 'Servicio profesional de cardiología y medicina general. Dr. Juan Pérez - Especialista en Cardiología en San Diego.';
-const lang = 'es';
+const title = "Dr. Juan Pérez - Cardiología | Clínica Nischinto";
+const description =
+  "Servicio profesional de cardiología y medicina general. Dr. Juan Pérez - Especialista en Cardiología en San Diego.";
+const lang = "es";
 ---
 
 <MainLayout {title} {description} {lang} ogImage="/hero-img.png">
@@ -20,11 +23,13 @@ const lang = 'es';
     <main>
       <HeroSection {lang} />
       <AboutSection {lang} />
-      <AppointmentSection {lang} />
       <GallerySection {lang} />
       <TestimonialsSection {lang} />
+      <WhyChooseSection {lang} />
+      <AppointmentSection {lang} />
     </main>
 
+    <MapSection {lang} type="short" />
     <Footer {lang} />
   </div>
 </MainLayout>

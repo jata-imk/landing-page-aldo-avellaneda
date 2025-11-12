@@ -1,14 +1,17 @@
 ---
-import { t } from '../../i18n/translations';
+import { t } from "../../i18n/translations";
 
 interface Props {
-  lang?: 'es' | 'en';
+  lang?: "es" | "en";
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = "es" } = Astro.props;
 ---
 
-<footer class="st-site-footer st-sticky-footer st-dynamic-bg" data-src="/footer-bg.png">
+<footer
+  class="st-site-footer st-sticky-footer st-dynamic-bg"
+  data-src="/footer-bg.png"
+>
   {/* Start Footer - Copy from template original */}
   <div class="st-main-footer">
     <div class="container">
@@ -16,9 +19,9 @@ const { lang = 'es' } = Astro.props;
         <div class="col-lg-3">
           <div class="st-footer-widget">
             <div class="st-text-field">
-              <img src="/footer-logo.png" alt="Nischinto" class="st-footer-logo" />
+              <img src="/logo-128.png" alt="Nischinto" class="st-footer-logo" />
               <div class="st-height-b25 st-height-lg-b25"></div>
-              <div class="st-footer-text">{t('footer.description', lang)}</div>
+              <div class="st-footer-text">{t("footer.description", lang)}</div>
               <div class="st-height-b25 st-height-lg-b25"></div>
               <ul class="st-social-btn st-style1 st-mp0">
                 <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
@@ -31,34 +34,86 @@ const { lang = 'es' } = Astro.props;
         </div>
         <div class="col-lg-3">
           <div class="st-footer-widget">
-            <h2 class="st-footer-widget-title">{t('footer.usefulLinks.title', lang)}</h2>
+            <h2 class="st-footer-widget-title">
+              {t("footer.usefulLinks.title", lang)}
+            </h2>
             <ul class="st-footer-widget-nav st-mp0">
-              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('footer.usefulLinks.faqs', lang)}</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('footer.usefulLinks.blog', lang)}</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('footer.usefulLinks.timetable', lang)}</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('footer.usefulLinks.terms', lang)}</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="st-footer-widget">
-            <h2 class="st-footer-widget-title">{t('footer.departments.title', lang)}</h2>
-            <ul class="st-footer-widget-nav st-mp0">
-              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('departments.rehabilitation', lang)}</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('departments.laboratoryAnalysis', lang)}</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('departments.faceLiftSurgery', lang)}</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i>{t('departments.liposuction', lang)}</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="st-footer-widget">
-            <h2 class="st-footer-widget-title">{t('footer.contacts.title', lang)}</h2>
-            <ul class="st-footer-contact-list st-mp0">
-              <li><span class="st-footer-contact-title">{t('footer.contacts.addressLabel', lang)}</span> {t('footer.contacts.address', lang)}
+              <li>
+                <a href={lang === "es" ? "/" : "/en"}>
+                  <i class="fas fa-chevron-right"></i>{
+                    t("footer.usefulLinks.home", lang)
+                  }
+                </a>
               </li>
-              <li><span class="st-footer-contact-title">{t('footer.contacts.emailLabel', lang)}</span> {t('footer.contacts.email', lang)}</li>
-              <li><span class="st-footer-contact-title">{t('footer.contacts.phoneLabel', lang)}</span> {t('footer.contacts.phone1', lang)} <br />{t('footer.contacts.phone2', lang)}</li>
+              <li>
+                <a
+                  href={lang === "es"
+                    ? "/acerca-del-dr-aldo-avellaneda"
+                    : "/en/about-dr-aldo-avellaneda"}
+                >
+                  <i class="fas fa-chevron-right"></i>{
+                    t("footer.usefulLinks.about", lang)
+                  }
+                </a>
+              </li>
+              <li>
+                <a
+                  href={lang === "es"
+                    ? "/cirugia-de-columna"
+                    : "/en/spine-surgery"}
+                >
+                  <i class="fas fa-chevron-right"></i>{
+                    t("footer.usefulLinks.spineSurgery", lang)
+                  }
+                </a>
+              </li>
+              <li>
+                <a href={lang === "es" ? "/contacto" : "/en/contact"}>
+                  <i class="fas fa-chevron-right"></i>{
+                    t("footer.usefulLinks.contact", lang)
+                  }
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3">
+          <div class="st-footer-widget">
+            <h2 class="st-footer-widget-title">
+              {t("footer.contacts.title", lang)}
+            </h2>
+            <ul class="st-footer-contact-list st-mp0">
+              <li>
+                <span class="st-footer-contact-title"
+                  >{t("footer.contacts.addressLabel", lang)}</span
+                >
+                {t("footer.contacts.address", lang)}
+              </li>
+              <li>
+                <span class="st-footer-contact-title"
+                  >{t("footer.contacts.phoneLabel", lang)}</span
+                >
+                <span class="st-footer-contact-title"
+                  >{t("footer.contacts.phoneNationalLabel", lang)}</span
+                >
+                <a
+                  href={`tel:${t("footer.contacts.phoneNational", lang)}`}
+                  style="color: inherit;"
+                >
+                  {t("footer.contacts.phoneNational", lang)}
+                </a>
+                <br />
+                <span class="st-footer-contact-title"
+                  >{t("footer.contacts.phoneInternationalLabel", lang)}</span
+                >
+                <a
+                  href={`tel:${t("footer.contacts.phoneInternational", lang)}`}
+                  style="color: inherit;"
+                >
+                  {t("footer.contacts.phoneInternational", lang)}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -69,10 +124,10 @@ const { lang = 'es' } = Astro.props;
     <div class="container">
       <div class="st-copyright-in">
         <div class="st-left-copyright">
-          <div class="st-copyright-text">{t('footer.copyright', lang)}</div>
+          <div class="st-copyright-text">{t("footer.copyright", lang)}</div>
         </div>
         <div class="st-right-copyright">
-          <div id="st-backtotop" style={{ cursor: 'pointer' }}>
+          <div id="st-backtotop" style={{ cursor: "pointer" }}>
             <i class="fas fa-angle-up"></i>
           </div>
         </div>
@@ -84,22 +139,22 @@ const { lang = 'es' } = Astro.props;
 
 <script>
   // Back to top functionality
-  const backToTopBtn = document.getElementById('st-backtotop');
+  const backToTopBtn = document.getElementById("st-backtotop");
   if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
   // Dynamic background for footer
-  const footerBg = document.querySelector('.st-dynamic-bg');
+  const footerBg = document.querySelector(".st-dynamic-bg");
   if (footerBg) {
-    const bgSrc = footerBg.getAttribute('data-src');
+    const bgSrc = footerBg.getAttribute("data-src");
     if (bgSrc) {
       (footerBg as HTMLElement).style.backgroundImage = `url(${bgSrc})`;
-      (footerBg as HTMLElement).style.backgroundSize = 'cover';
-      (footerBg as HTMLElement).style.backgroundPosition = 'center';
-      (footerBg as HTMLElement).style.backgroundAttachment = 'fixed';
+      (footerBg as HTMLElement).style.backgroundSize = "cover";
+      (footerBg as HTMLElement).style.backgroundPosition = "center";
+      (footerBg as HTMLElement).style.backgroundAttachment = "fixed";
     }
   }
 </script>

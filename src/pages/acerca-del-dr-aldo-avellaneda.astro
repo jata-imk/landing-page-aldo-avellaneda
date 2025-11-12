@@ -1,0 +1,110 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+const title = 'Acerca del Dr. Aldo Avellaneda - Cirujano de Columna Vertebral';
+const description = 'Conozca al Dr. Aldo Avellaneda, cirujano de columna vertebral altamente calificado especializado en procedimientos complejos y técnicas mínimamente invasivas.';
+const lang = 'es';
+---
+
+<MainLayout {title} {description} {lang} ogImage="/gallery/67c1ca17202f9b1972c06b49_Dr-Avellaneda-_-PM-_-Pulse-8.jpg">
+  <div class="st-content">
+    <Header {lang} />
+
+    <main>
+      <!-- Hero Section -->
+      <section class="st-page-heading st-dynamic-bg" style="background-image: url('/shape/contact-bg-shape.svg')">
+        <div class="container">
+          <div class="st-page-heading-in text-center">
+            <h1 class="st-page-heading-title">Dr. Aldo Avellaneda</h1>
+            <div class="st-page-heading-subtitle">Cirujano de Columna Vertebral</div>
+          </div>
+        </div>
+      </section>
+      <div class="st-height-b120 st-height-lg-b80"></div>
+
+      <!-- Main Content -->
+      <section class="container">
+        <div class="row">
+          <!-- Doctor Image -->
+          <div class="col-lg-5">
+            <div class="st-member-img">
+              <img
+                src="/gallery/67c1ca17202f9b1972c06b49_Dr-Avellaneda-_-PM-_-Pulse-8.jpg"
+                alt="Dr. Aldo Avellaneda"
+                style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);"
+              />
+            </div>
+            <div class="st-height-b0 st-height-lg-b30"></div>
+          </div>
+
+          <!-- Doctor Information -->
+          <div class="col-lg-7">
+            <div class="st-vertical-middle">
+              <div class="st-vertical-middle-in">
+                <div class="st-text-block st-style1">
+                  <h2 class="st-text-block-title">Especialista en Cirugía de Columna Vertebral</h2>
+                  <div class="st-height-b20 st-height-lg-b20"></div>
+
+                  <div class="st-text-block-text">
+                    <p>
+                      El Dr. Aldo Avellaneda es un cirujano de columna vertebral altamente calificado que se especializa en procedimientos espinales complejos y técnicas mínimamente invasivas.
+                    </p>
+                    <p>
+                      Con una amplia formación y años de experiencia, se ha consolidado como experto de confianza en el tratamiento de afecciones espinales graves, incluidos los casos que antes se consideraban inoperables.
+                    </p>
+
+                    <div class="st-height-b25 st-height-lg-b25"></div>
+
+                    <h3>Formación y Experiencia</h3>
+                    <p>
+                      <em>[Aquí puede agregar información sobre la formación académica, residencias, certificaciones y experiencia profesional del Dr. Avellaneda]</em>
+                    </p>
+
+                    <div class="st-height-b25 st-height-lg-b25"></div>
+
+                    <h3>Especialidades</h3>
+                    <ul style="list-style: disc; padding-left: 20px;">
+                      <li>Cirugía de columna vertebral mínimamente invasiva</li>
+                      <li>Tratamiento de hernias discales complejas</li>
+                      <li>Cirugía de escoliosis y deformidades espinales</li>
+                      <li>Procedimientos de fusión espinal</li>
+                      <li>Tratamiento de estenosis espinal</li>
+                      <li>Cirugía de tumores espinales</li>
+                    </ul>
+
+                    <div class="st-height-b25 st-height-lg-b25"></div>
+
+                    <h3>Afiliaciones y Certificaciones</h3>
+                    <p>
+                      <em>[Aquí puede agregar información sobre asociaciones médicas, certificaciones de especialidad, membresías profesionales]</em>
+                    </p>
+
+                    <div class="st-height-b25 st-height-lg-b25"></div>
+
+                    <h3>Publicaciones e Investigación</h3>
+                    <p>
+                      <em>[Aquí puede agregar información sobre publicaciones científicas, investigaciones, conferencias y contribuciones al campo]</em>
+                    </p>
+
+                    <div class="st-height-b40 st-height-lg-b40"></div>
+
+                    <!-- CTA Button -->
+                    <a href="/#appointment" class="st-btn st-style1 st-color1 st-size-medium">
+                      Agendar una Cita
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="st-height-b120 st-height-lg-b80"></div>
+    </main>
+
+    <Footer {lang} />
+  </div>
+</MainLayout>

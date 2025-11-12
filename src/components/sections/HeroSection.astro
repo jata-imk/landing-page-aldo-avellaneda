@@ -1,91 +1,106 @@
 ---
-import { t } from '../../i18n/translations';
+import { t } from "../../i18n/translations";
 
 interface Props {
-  lang?: 'es' | 'en';
+  lang?: "es" | "en";
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = "es" } = Astro.props;
 
 // Palabras que rotan en el hero title
-const words = t('sections.hero.words', lang) as string[];
+const words = t("sections.hero.words", lang) as string[];
 ---
 
-<div class="st-hero-wrap st-gray-bg st-dynamic-bg overflow-hidden st-fixed-bg" data-src="/hero-bg.jpg">
+<div
+  class="st-hero-wrap st-gray-bg st-dynamic-bg overflow-hidden st-fixed-bg"
+  data-src="/hero-bg.jpg"
+>
   {/* Hero Content */}
   <div class="st-hero st-style1">
     <div class="container">
       <div class="st-hero-text">
         <div class="st-height-b40 st-height-lg-b40"></div>
         <h1 class="st-hero-title cd-headline slide">
-          {t('sections.hero.titlePart1', lang)} <br />
-          {t('sections.hero.titlePart2', lang)}
+          {t("sections.hero.titlePart1", lang)}
           <span class="cd-words-wrapper">
-            {words.map((word, idx) => (
-              <b class={idx === 0 ? 'is-visible' : ''}>
-                {word}
-              </b>
-            ))}
+            {
+              words.map((word, idx) => (
+                <b class={idx === 0 ? "is-visible" : ""}>{word}</b>
+              ))
+            }
           </span>
+          {t("sections.hero.titlePart2", lang)}
         </h1>
         <div
           class="st-hero-subtitle"
-          set:html={t('sections.hero.subtitle', lang)}
+          set:html={t("sections.hero.subtitle", lang)}
         />
         <div class="st-hero-btn">
-          <a href="#appointment" class="st-btn st-style1 st-color1 st-smooth-move">
-            {t('sections.hero.button', lang)}
+          <a
+            href={`https://wa.me/${t("contact.whatsapp.yucatan", lang)}?text=${encodeURIComponent(t("contact.whatsapp.defaultMessage", lang))}`}
+            class="st-btn st-style1 st-color1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-whatsapp"></i>
+            {t("sections.hero.button", lang)}
           </a>
         </div>
-      </div>
-    </div>
-    <div class="st-hero-social-group">
-      <div class="container">
-        <ul class="st-social-btn st-style1 st-mp0">
-          <li>
-            <a href="#">
-              <i class="fab fa-facebook-square"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fab fa-pinterest-square"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fab fa-twitter-square"></i>
-            </a>
-          </li>
-        </ul>
+
+        {/* Social Media Links */}
+        <div
+          class="st-hero-social-links"
+          style="margin-top: 30px;display: flex;align-items: center;gap: 1rem;"
+        >
+          Mas redes sociales:
+          <ul
+            class="st-social-btn st-style1 st-mp0"
+            style="justify-content: flex-start; gap: 15px;"
+          >
+            <li>
+              <a
+                href="https://www.facebook.com/DrAldoAvellaneda/?locale=es_LA"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-square" style="font-size: 2rem;"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/dr.aldo.avellaneda/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram" style="font-size: 2rem;"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin" style="font-size: 2rem;"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 
   {/* Hero Slider */}
   <div class="st-slider st-style1 st-hero-slider1" id="home">
-    <div class="slick-container" data-autoplay="1" data-loop="1" data-speed="800" data-autoplay-timeout="1000" data-center="0" data-slides-per-view="1" data-fade-slide="1">
+    <div>
       <div class="st-hero-img">
-        <img src="/gallery/67c05cfe5313ce0e595ba912_Adobe-Express---file--5--1--3-.png" alt="Dr. Aldo Avellaneda - Equipo Médico" />
-      </div>
-      <div class="st-hero-img">
-        <img src="/gallery/67c00784d885b1aaa8dd3b65_Dr-Aldo--1-.png" alt="Dr. Aldo Avellaneda - Cirujano de Columna" />
-      </div>
-      <div class="st-hero-img">
-        <img src="/gallery/67c01449f8d7b7df6faf2f86_Dr-Aldo-2--1-.png" alt="Dr. Aldo Avellaneda - Especialista en Columna Vertebral" />
-      </div>
-    </div>
-    <div class="swipe-arrow st-style1 st-hidden">
-      <div class="slick-arrow-left">
-        <i class="fa fa-angle-left"></i>
-      </div>
-      <div class="slick-arrow-right">
-        <i class="fa fa-angle-right"></i>
+        <img
+          src="/gallery/67c01449f8d7b7df6faf2f86_Dr-Aldo-2--1-.png"
+          alt="Dr. Aldo Avellaneda - Especialista en Columna Vertebral"
+        />
       </div>
     </div>
   </div>
@@ -99,63 +114,25 @@ const words = t('sections.hero.words', lang) as string[];
 <script>
   // Rotación de palabras en el título
   function rotateWords() {
-    const wordsWrapper = document.querySelector('.cd-words-wrapper');
+    const wordsWrapper = document.querySelector(".cd-words-wrapper");
     if (!wordsWrapper) return;
 
-    const words = wordsWrapper.querySelectorAll('b');
+    const words = wordsWrapper.querySelectorAll("b");
     if (words.length === 0) return;
 
     let currentIndex = 0;
 
     // Mostrar primera palabra
     words.forEach((word, idx) => {
-      word.classList.remove('is-visible');
+      word.classList.remove("is-visible");
     });
-    words[0].classList.add('is-visible');
+    words[0].classList.add("is-visible");
 
     setInterval(() => {
-      words[currentIndex].classList.remove('is-visible');
+      words[currentIndex].classList.remove("is-visible");
       currentIndex = (currentIndex + 1) % words.length;
-      words[currentIndex].classList.add('is-visible');
+      words[currentIndex].classList.add("is-visible");
     }, 3000);
-  }
-
-  // Inicializar slider con Slick
-  function initHeroSlider() {
-    const $ = (window as any).$;
-    if (!$ || !$.fn.slick) {
-      console.log('jQuery o Slick no disponibles');
-      return;
-    }
-
-    const $sliderContainer = $('.st-hero-slider1 .slick-container');
-    if ($sliderContainer.length === 0) {
-      console.log('Slider container no encontrado');
-      return;
-    }
-
-    try {
-      // Si ya está inicializado, destruir primero
-      if ($sliderContainer.hasClass('slick-initialized')) {
-        $sliderContainer.slick('unslick');
-      }
-
-      $sliderContainer.slick({
-        autoplay: true,
-        infinite: true,
-        speed: 800,
-        autoplaySpeed: 3000,
-        fade: true,
-        arrows: false,
-        dots: true,
-        dotsClass: 'pagination st-style1 container',
-        adaptiveHeight: false,
-      });
-
-      console.log('Slider inicializado correctamente');
-    } catch (e) {
-      console.error('Error al inicializar Slick:', e);
-    }
   }
 
   // Función para esperar a que jQuery y Slick estén disponibles
@@ -169,20 +146,20 @@ const words = t('sections.hero.words', lang) as string[];
 
       if ($ && $.fn.slick) {
         clearInterval(checkInterval);
-        console.log('jQuery y Slick cargados correctamente');
-        initHeroSlider();
         rotateWords();
       } else if (attempts >= maxAttempts) {
         clearInterval(checkInterval);
-        console.warn('jQuery/Slick no disponible después de intentos, ejecutando fallback');
+        console.warn(
+          "jQuery/Slick no disponible después de intentos, ejecutando fallback"
+        );
         rotateWords();
       }
     }, 100);
   }
 
   // Ejecutar cuando el script se carga
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeroComponents);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeroComponents);
   } else {
     initHeroComponents();
   }

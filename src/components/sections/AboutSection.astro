@@ -1,11 +1,11 @@
 ---
-import { t } from '../../i18n/translations';
+import { t } from "../../i18n/translations";
 
 interface Props {
-  lang?: 'es' | 'en';
+  lang?: "es" | "en";
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = "es" } = Astro.props;
 ---
 
 <section class="st-about-wrap" id="about">
@@ -15,17 +15,29 @@ const { lang = 'es' } = Astro.props;
   <div class="st-height-b120 st-height-lg-b50"></div>
   <div class="container">
     <div class="st-section-heading st-style1">
-      <h2 class="st-section-heading-title">{t('sections.about.title', lang)}</h2>
+      <h2 class="st-section-heading-title">
+        {t("sections.about.title", lang)}
+      </h2>
       <div class="st-seperator">
-        <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+        <div
+          class="st-seperator-left wow fadeInLeft"
+          data-wow-duration="1s"
+          data-wow-delay="0.2s"
+        >
+        </div>
         <div class="st-seperator-center">
           <img src="/icons/4.png" alt="icon" />
         </div>
-        <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+        <div
+          class="st-seperator-right wow fadeInRight"
+          data-wow-duration="1s"
+          data-wow-delay="0.2s"
+        >
+        </div>
       </div>
       <div
         class="st-section-heading-subtitle"
-        set:html={t('sections.about.subtitle', lang)}
+        set:html={t("sections.about.subtitle", lang)}
       />
     </div>
     <div class="st-height-b40 st-height-lg-b40"></div>
@@ -37,106 +49,113 @@ const { lang = 'es' } = Astro.props;
           <div class="st-vertical-middle-in">
             <div class="st-text-block st-style1">
               <h2 class="st-text-block-title">
-                {t('sections.about.content.title', lang)}
+                {t("sections.about.content.title", lang)}
               </h2>
               <div class="st-height-b20 st-height-lg-b20"></div>
-              <div class="st-text-block-text">
-                <p>{t('sections.about.content.paragraph1', lang)}</p>
-                <p>{t('sections.about.content.paragraph2', lang)}</p>
+
+              <!-- Doctor's image and text side by side -->
+              <div
+                class="st-doctor-info-wrap"
+                style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap;"
+              >
+                <div
+                  class="st-doctor-image"
+                  style="flex: 0 0 320px; max-width: 320px;"
+                >
+                  <img
+                    src="/gallery/67c1ca17202f9b1972c06b49_Dr-Avellaneda-_-PM-_-Pulse-8.jpg"
+                    alt="Dr. Aldo Avellaneda"
+                    style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 6px 15px rgba(0,0,0,0.15);"
+                  />
+                </div>
+                <div
+                  class="st-text-block-text"
+                  style="flex: 1; min-width: 250px;"
+                >
+                  <p>{t("sections.about.content.paragraph1", lang)}</p>
+                  <p>{t("sections.about.content.paragraph2", lang)}</p>
+                </div>
               </div>
+
               <div class="st-height-b25 st-height-lg-b25"></div>
-              <div class="st-text-block-avatar">
-                <div class="st-avatar-img">
-                  <img src="/avatar1.png" alt="avatar" />
-                </div>
-                <div class="st-avatar-info">
-                  <h4 class="st-avatar-name">{t('sections.about.content.avatar.name', lang)}</h4>
-                  <div class="st-avatar-designation">{t('sections.about.content.avatar.designation', lang)}</div>
-                </div>
-              </div>
+
+              <!-- Learn More Button -->
+              <a
+                href={lang === "es"
+                  ? "/acerca-del-dr-aldo-avellaneda"
+                  : "/en/about-dr-aldo-avellaneda"}
+                class="st-btn st-style1 st-color1 st-size-medium"
+                style="width: 100%;"
+              >
+                {t("sections.about.content.button", lang)}
+              </a>
             </div>
           </div>
         </div>
         <div class="st-height-b0 st-height-lg-b30"></div>
       </div>
 
-      <div class="col-lg-5 wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.2s">
-        <div class="st-shedule-wrap">
+      <div
+        class="col-lg-5 wow fadeInRight"
+        data-wow-duration="0.8s"
+        data-wow-delay="0.2s"
+        style="display: flex; align-items: center;"
+      >
+        <div class="st-shedule-wrap" style="width: 100%;">
           <div class="st-shedule">
-            <h2 class="st-shedule-title">{t('sections.about.schedule.title', lang)}</h2>
+            <h2 class="st-shedule-title">
+              {t("sections.about.schedule.title", lang)}
+            </h2>
             <ul class="st-shedule-list">
               <li>
-                <div class="st-shedule-left">{t('sections.about.schedule.days.monday', lang)}</div>
-                <div class="st-shedule-right">{t('sections.about.schedule.hours.monday', lang)}</div>
+                <div class="st-shedule-left">
+                  {t("sections.about.schedule.weekdays", lang)}
+                </div>
+                <div class="st-shedule-right">
+                  {t("sections.about.schedule.weekdaysHours", lang)}
+                </div>
               </li>
               <li>
-                <div class="st-shedule-left">{t('sections.about.schedule.days.tuesday', lang)}</div>
-                <div class="st-shedule-right">{t('sections.about.schedule.hours.tuesday', lang)}</div>
-              </li>
-              <li>
-                <div class="st-shedule-left">{t('sections.about.schedule.days.wednesday', lang)}</div>
-                <div class="st-shedule-right">{t('sections.about.schedule.hours.wednesday', lang)}</div>
-              </li>
-              <li>
-                <div class="st-shedule-left">{t('sections.about.schedule.days.thursday', lang)}</div>
-                <div class="st-shedule-right">{t('sections.about.schedule.hours.thursday', lang)}</div>
-              </li>
-              <li>
-                <div class="st-shedule-left">{t('sections.about.schedule.days.friday', lang)}</div>
-                <div class="st-shedule-right">{t('sections.about.schedule.hours.friday', lang)}</div>
-              </li>
-              <li>
-                <div class="st-shedule-left">{t('sections.about.schedule.days.saturday', lang)}</div>
-                <div class="st-shedule-right">{t('sections.about.schedule.hours.saturday', lang)}</div>
-              </li>
-              <li>
-                <div class="st-shedule-left">{t('sections.about.schedule.days.sunday', lang)}</div>
-                <div class="st-shedule-right">{t('sections.about.schedule.hours.sunday', lang)}</div>
+                <div class="st-shedule-left">
+                  {t("sections.about.schedule.saturday", lang)}
+                </div>
+                <div class="st-shedule-right">
+                  {t("sections.about.schedule.saturdayHours", lang)}
+                </div>
               </li>
             </ul>
             <div class="st-height-b25 st-height-lg-b25"></div>
             <div class="st-call st-style1">
-              <div class="st-call-icon">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512">
-                  <g>
-                    <path d="M492.557,400.56L392.234,300.238c-11.976-11.975-31.458-11.975-43.435,0l-26.088,26.088
-                    c-8.174,8.174-10.758,19.845-7.773,30.241l-9.843,9.843c-0.003,0.003-0.005,0.005-0.008,0.008
-                    c-6.99,6.998-50.523-3.741-103.145-56.363c-52.614-52.613-63.356-96.139-56.366-103.142c0-0.002,0.002-0.002,0.002-0.002
-                    l9.852-9.851c2.781,0.799,5.651,1.207,8.523,1.207c7.865,0,15.729-2.993,21.718-8.98l26.088-26.088
-                    c11.975-11.975,11.975-31.458,0-43.434L111.436,19.441c-5.8-5.8-13.513-8.994-21.716-8.994c-8.205,0-15.915,3.196-21.716,8.994
-                    l-26.09,26.09c-8.174,8.174-10.758,19.846-7.773,30.241c0,0-8.344,8.424-8.759,8.956c-27.753,30.849-32.96,79.418-14.561,137.487
-                    c18.017,56.857,56.857,117.088,109.367,169.595c52.508,52.508,112.739,91.348,169.596,109.367
-                    C312.624,508.414,333.991,512,353.394,512c31.813,0,58.337-9.648,77.35-28.66l5.474-5.474c2.74,0.788,5.602,1.213,8.532,1.213
-                    c8.205,0,15.917-3.196,21.716-8.994l26.09-26.09C504.531,432.02,504.531,412.536,492.557,400.56z M89.72,41.157l100.324,100.325
-                    l-26.074,26.102c0,0-0.005-0.005-0.014-0.014l-0.375-0.375l-49.787-49.787L63.631,67.247L89.72,41.157z M409.029,461.623
-                    c-0.002,0.002-0.003,0.003-0.005,0.005c-22.094,22.091-61.146,25.74-109.961,10.27c-52.252-16.558-108.065-52.714-157.156-101.806
-                    C92.814,321,56.658,265.189,40.101,212.936c-15.47-48.817-11.821-87.87,10.275-109.967l0.002-0.002l2.77-2.77l77.857,77.856
-                    l-7.141,7.141c-0.005,0.005-0.009,0.011-0.015,0.017c-29.585,29.622,5.963,96.147,56.378,146.562
-                    c37.734,37.734,84.493,67.14,118.051,67.14c11.284,0,21.076-3.325,28.528-10.778c0.003-0.003,0.005-0.005,0.008-0.008l7.133-7.133
-                    l77.857,77.856L409.029,461.623z M444.752,448.368L344.428,348.044l26.088-26.088L470.84,422.278
-                    C470.84,422.278,444.761,448.377,444.752,448.368z"></path>
-                    </g>
-                    <g>
-                    <path d="M388.818,123.184c-29.209-29.209-68.042-45.294-109.344-45.293c-8.481,0-15.356,6.875-15.356,15.356
-                    c0,8.481,6.876,15.356,15.356,15.356c33.1-0.002,64.219,12.89,87.628,36.297c23.406,23.406,36.295,54.525,36.294,87.624
-                    c0,8.481,6.875,15.358,15.356,15.358c8.48,0,15.356-6.875,15.356-15.354C434.109,191.224,418.023,152.393,388.818,123.184z"></path>
-                    </g>
-                    <g>
-                    <path d="M443.895,68.107C399.972,24.186,341.578-0.002,279.468,0c-8.481,0-15.356,6.876-15.356,15.356
-                    c0,8.481,6.876,15.356,15.356,15.356c53.907-0.002,104.588,20.992,142.709,59.111c38.118,38.118,59.111,88.799,59.11,142.706
-                    c0,8.481,6.875,15.356,15.356,15.356c8.48,0,15.356-6.875,15.356-15.354C512.001,170.419,487.813,112.027,443.895,68.107z"></path>
-                    </g>
-                    <g>
-                    <path d="M333.737,178.26c-14.706-14.706-33.465-22.477-54.256-22.477c0,0-0.005,0-0.006,0
-                    c-8.481,0.002-15.356,6.876-15.354,15.358c0.002,8.481,6.878,15.356,15.358,15.354c0.002,0,0.003,0,0.005,0
-                    c12.644,0,23.593,4.536,32.539,13.481c8.819,8.82,13.481,20.075,13.479,32.544c-0.002,8.481,6.875,15.356,15.354,15.358h0.002
-                    c8.481,0,15.354-6.875,15.356-15.354C356.215,211.732,348.444,192.968,333.737,178.26z"></path>
-                    </g>
-                </svg>
-              </div>
-              <div class="st-call-text">
-                <div class="st-call-title">{t('sections.about.call.title', lang)}</div>
-                <div class="st-call-number">{t('sections.about.call.number', lang)}</div>
+              <div class="st-call-text" style="width: 100%;">
+                <div class="st-call-title">
+                  {t("sections.about.call.title", lang)}
+                </div>
+                <div class="st-call-number">
+                  <div style="display: flex; justify-content: space-between;">
+                    <strong
+                      >{t("sections.about.call.nationalLabel", lang)}:</strong
+                    >
+                    <a
+                      href={`tel:${t("sections.about.call.national", lang)}`}
+                      style="color: inherit; text-decoration: none;"
+                    >
+                      {t("sections.about.call.national", lang)}
+                    </a>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <strong
+                      >{
+                        t("sections.about.call.internationalLabel", lang)
+                      }:</strong
+                    >
+                    <a
+                      href={`tel:${t("sections.about.call.international", lang)}`}
+                      style="color: inherit; text-decoration: none;"
+                    >
+                      {t("sections.about.call.international", lang)}
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

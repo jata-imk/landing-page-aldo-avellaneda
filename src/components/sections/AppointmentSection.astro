@@ -1,11 +1,11 @@
 ---
-import { t } from '../../i18n/translations';
+import { t } from "../../i18n/translations";
 
 interface Props {
-  lang?: 'es' | 'en';
+  lang?: "es" | "en";
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = "es" } = Astro.props;
 ---
 
 <section id="appointment" class="st-shape-wrap st-gray-bg">
@@ -19,14 +19,15 @@ const { lang = 'es' } = Astro.props;
   <div class="container">
     <div class="st-section-heading st-style1">
       <h2 class="st-section-heading-title">
-        {t('sections.appointment.title', lang)}
+        {t("sections.appointment.title", lang)}
       </h2>
       <div class="st-seperator">
         <div
           class="st-seperator-left wow fadeInLeft"
           data-wow-duration="1s"
           data-wow-delay="0.2s"
-        ></div>
+        >
+        </div>
         <div class="st-seperator-center">
           <img src="/icons/4.png" alt="icon" />
         </div>
@@ -34,30 +35,24 @@ const { lang = 'es' } = Astro.props;
           class="st-seperator-right wow fadeInRight"
           data-wow-duration="1s"
           data-wow-delay="0.2s"
-        ></div>
-      </div>
-      <div class="st-section-heading-subtitle">
-        {t('sections.appointment.subtitle', lang)}
+        >
+        </div>
       </div>
     </div>
-    <div class="st-height-b40 st-height-lg-b40"></div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <form
-          class="st-appointment-form"
-          id="appointment-form"
-        >
+        <form class="st-appointment-form" id="appointment-form">
           <div class="row">
             {/* Full Name */}
             <div class="col-lg-6">
               <div class="st-form-field st-style1">
-                <label>{t('forms.appointment.fullName', lang)}</label>
+                <label>{t("forms.appointment.fullName", lang)}</label>
                 <input
                   type="text"
                   name="fullName"
-                  placeholder={t('forms.appointment.fullNamePlaceholder', lang)}
+                  placeholder={t("forms.appointment.fullNamePlaceholder", lang)}
                   required
                   minlength="3"
                 />
@@ -67,11 +62,11 @@ const { lang = 'es' } = Astro.props;
             {/* Email */}
             <div class="col-lg-6">
               <div class="st-form-field st-style1">
-                <label>{t('forms.appointment.email', lang)}</label>
+                <label>{t("forms.appointment.email", lang)}</label>
                 <input
                   type="email"
                   name="email"
-                  placeholder={t('forms.appointment.emailPlaceholder', lang)}
+                  placeholder={t("forms.appointment.emailPlaceholder", lang)}
                   required
                 />
               </div>
@@ -80,92 +75,36 @@ const { lang = 'es' } = Astro.props;
             {/* Phone Number */}
             <div class="col-lg-6">
               <div class="st-form-field st-style1">
-                <label>{t('forms.appointment.phone', lang)}</label>
+                <label>{t("forms.appointment.phone", lang)}</label>
                 <input
                   type="tel"
                   name="phone"
-                  placeholder={t('forms.appointment.phonePlaceholder', lang)}
+                  placeholder={t("forms.appointment.phonePlaceholder", lang)}
                   required
                   pattern="[+\d\s\-()]+"
                 />
               </div>
             </div>
 
-            {/* Booking Date */}
+            {/* Preferred Language Select */}
             <div class="col-lg-6">
               <div class="st-form-field st-style1">
-                <label>{t('forms.appointment.date', lang)}</label>
-                <input
-                  type="date"
-                  name="date"
-                  required
-                />
-                <div class="form-field-icon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-              </div>
-            </div>
-
-            {/* Department Select */}
-            <div class="col-lg-6">
-              <div class="st-form-field st-style1">
-                <label>{t('forms.appointment.department', lang)}</label>
+                <label>{t("forms.appointment.preferredLanguage", lang)}</label>
                 <div class="st-custom-select-wrap">
-                  <select
-                    name="department"
-                    required
-                  >
-                    <option value="">{t('forms.appointment.departmentPlaceholder', lang)}</option>
-                    <option value="dental-care">
-                      {t('departments.dentalCare', lang)}
+                  <select name="preferredLanguage" required>
+                    <option value=""
+                      >{
+                        t(
+                          "forms.appointment.preferredLanguagePlaceholder",
+                          lang
+                        )
+                      }</option
+                    >
+                    <option value="spanish">
+                      {t("forms.appointment.languageOptions.spanish", lang)}
                     </option>
-                    <option value="neurology">
-                      {t('departments.neurology', lang)}
-                    </option>
-                    <option value="crutches">
-                      {t('departments.crutches', lang)}
-                    </option>
-                    <option value="cardiology">
-                      {t('departments.cardiology', lang)}
-                    </option>
-                    <option value="pulmonary">
-                      {t('departments.pulmonary', lang)}
-                    </option>
-                    <option value="x-ray">
-                      {t('departments.xray', lang)}
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Doctor Select */}
-            <div class="col-lg-6">
-              <div class="st-form-field st-style1">
-                <label>{t('forms.appointment.doctor', lang)}</label>
-                <div class="st-custom-select-wrap">
-                  <select
-                    name="doctor"
-                    required
-                  >
-                    <option value="">{t('forms.appointment.doctorPlaceholder', lang)}</option>
-                    <option value="jhon-doe">
-                      {t('doctors.johnDoe', lang)}
-                    </option>
-                    <option value="mak-rushi">
-                      {t('doctors.makRushi', lang)}
-                    </option>
-                    <option value="mohoshin-kabir">
-                      {t('doctors.mohoshinKabir', lang)}
-                    </option>
-                    <option value="nayon-borua">
-                      {t('doctors.nayonBorua', lang)}
-                    </option>
-                    <option value="rasel-islam">
-                      {t('doctors.raselIslam', lang)}
-                    </option>
-                    <option value="mahid-islam">
-                      {t('doctors.mahidIslam', lang)}
+                    <option value="english">
+                      {t("forms.appointment.languageOptions.english", lang)}
                     </option>
                   </select>
                 </div>
@@ -175,24 +114,23 @@ const { lang = 'es' } = Astro.props;
             {/* Message */}
             <div class="col-lg-12">
               <div class="st-form-field st-style1">
-                <label>{t('forms.appointment.message', lang)}</label>
+                <label>{t("forms.appointment.message", lang)}</label>
                 <textarea
                   cols={30}
                   rows={10}
                   name="message"
-                  placeholder={t('forms.appointment.messagePlaceholder', lang)}
-                  minlength="10"
-                ></textarea>
+                  placeholder={t("forms.appointment.messagePlaceholder", lang)}
+                  minlength="10"></textarea>
               </div>
             </div>
 
             {/* Submit Button */}
-            <div class="col-lg-12">
+            <div class="col-lg-12 text-center">
               <button
                 class="st-btn st-style1 st-color1 st-size-medium"
                 type="submit"
               >
-                {t('forms.appointment.submit', lang)}
+                {t("forms.appointment.submit", lang)}
               </button>
             </div>
           </div>
@@ -200,24 +138,28 @@ const { lang = 'es' } = Astro.props;
       </div>
     </div>
   </div>
+
+  <div class="st-height-b120 st-height-lg-b80"></div>
 </section>
 
 <script>
-  const form = document.getElementById('appointment-form') as HTMLFormElement;
+  const form = document.getElementById("appointment-form") as HTMLFormElement;
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       // Obtener datos del formulario
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
 
-      console.log('Formulario de cita:', data);
+      console.log("Solicitud de llamada gratuita:", data);
       // TODO: Enviar datos a API
 
       // Mostrar mensaje de éxito
-      alert('Cita solicitada exitosamente. Nos contactaremos pronto.');
+      alert(
+        "Solicitud enviada exitosamente. Una enfermera coordinadora se comunicará con usted pronto."
+      );
 
       // Resetear formulario
       form.reset();

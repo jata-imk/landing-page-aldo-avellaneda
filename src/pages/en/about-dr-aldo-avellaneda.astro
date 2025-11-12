@@ -1,0 +1,110 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+
+const title = 'About Dr. Aldo Avellaneda - Spine Surgeon';
+const description = 'Meet Dr. Aldo Avellaneda, a highly qualified spine surgeon specialized in complex procedures and minimally invasive techniques.';
+const lang = 'en';
+---
+
+<MainLayout {title} {description} {lang} ogImage="/gallery/67c1ca17202f9b1972c06b49_Dr-Avellaneda-_-PM-_-Pulse-8.jpg">
+  <div class="st-content">
+    <Header {lang} />
+
+    <main>
+      <!-- Hero Section -->
+      <section class="st-page-heading st-dynamic-bg" style="background-image: url('/shape/contact-bg-shape.svg')">
+        <div class="container">
+          <div class="st-page-heading-in text-center">
+            <h1 class="st-page-heading-title">Dr. Aldo Avellaneda</h1>
+            <div class="st-page-heading-subtitle">Spine Surgeon</div>
+          </div>
+        </div>
+      </section>
+      <div class="st-height-b120 st-height-lg-b80"></div>
+
+      <!-- Main Content -->
+      <section class="container">
+        <div class="row">
+          <!-- Doctor Image -->
+          <div class="col-lg-5">
+            <div class="st-member-img">
+              <img
+                src="/gallery/67c1ca17202f9b1972c06b49_Dr-Avellaneda-_-PM-_-Pulse-8.jpg"
+                alt="Dr. Aldo Avellaneda"
+                style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);"
+              />
+            </div>
+            <div class="st-height-b0 st-height-lg-b30"></div>
+          </div>
+
+          <!-- Doctor Information -->
+          <div class="col-lg-7">
+            <div class="st-vertical-middle">
+              <div class="st-vertical-middle-in">
+                <div class="st-text-block st-style1">
+                  <h2 class="st-text-block-title">Spine Surgery Specialist</h2>
+                  <div class="st-height-b20 st-height-lg-b20"></div>
+
+                  <div class="st-text-block-text">
+                    <p>
+                      Dr. Aldo Avellaneda is a highly qualified spine surgeon who specializes in complex spinal procedures and minimally invasive techniques.
+                    </p>
+                    <p>
+                      With extensive training and years of experience, he has established himself as a trusted expert in the treatment of severe spinal conditions, including cases that were previously considered inoperable.
+                    </p>
+
+                    <div class="st-height-b25 st-height-lg-b25"></div>
+
+                    <h3>Education and Experience</h3>
+                    <p>
+                      <em>[Here you can add information about Dr. Avellaneda's academic training, residencies, certifications, and professional experience]</em>
+                    </p>
+
+                    <div class="st-height-b25 st-height-lg-b25"></div>
+
+                    <h3>Specialties</h3>
+                    <ul style="list-style: disc; padding-left: 20px;">
+                      <li>Minimally invasive spine surgery</li>
+                      <li>Treatment of complex disc herniations</li>
+                      <li>Scoliosis and spinal deformity surgery</li>
+                      <li>Spinal fusion procedures</li>
+                      <li>Spinal stenosis treatment</li>
+                      <li>Spinal tumor surgery</li>
+                    </ul>
+
+                    <div class="st-height-b25 st-height-lg-b25"></div>
+
+                    <h3>Affiliations and Certifications</h3>
+                    <p>
+                      <em>[Here you can add information about medical associations, specialty certifications, professional memberships]</em>
+                    </p>
+
+                    <div class="st-height-b25 st-height-lg-b25"></div>
+
+                    <h3>Publications and Research</h3>
+                    <p>
+                      <em>[Here you can add information about scientific publications, research, conferences, and contributions to the field]</em>
+                    </p>
+
+                    <div class="st-height-b40 st-height-lg-b40"></div>
+
+                    <!-- CTA Button -->
+                    <a href="/en/#appointment" class="st-btn st-style1 st-color1 st-size-medium">
+                      Make an Appointment
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="st-height-b120 st-height-lg-b80"></div>
+    </main>
+
+    <Footer {lang} />
+  </div>
+</MainLayout>

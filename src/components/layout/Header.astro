@@ -16,18 +16,6 @@ const { lang = "es" } = Astro.props;
         <ul class="st-top-header-list">
           <li>
             <svg
-              enable-background="new 0 0 479.058 479.058"
-              viewBox="0 0 479.058 479.058"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z"
-              ></path>
-            </svg>
-            <a href="mailto:info@nischinto.com">info@nischinto.com</a>
-          </li>
-          <li>
-            <svg
               enable-background="new 0 0 512.021 512.021"
               viewBox="0 0 512.021 512.021"
               xmlns="http://www.w3.org/2000/svg"
@@ -47,17 +35,23 @@ const { lang = "es" } = Astro.props;
                 ></path>
               </g>
             </svg>
-            <a href="tel:+01-234567890">+01 - 234 567 890</a>
+            <a href={`tel:${t("header.topHeader.phone", lang)}`}
+              >{t("header.topHeader.phone", lang)}</a
+            >
           </li>
         </ul>
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <a href="#appointment" class="st-top-header-btn" id="appointment-btn">
-            Appointment
+          <a
+            href={lang === "es" ? "/#appointment" : "/en/#appointment"}
+            class="st-top-header-btn"
+            id="appointment-btn"
+          >
+            {t("header.topHeader.appointmentBtn", lang)}
           </a>
           <button
             id="lang-toggle"
             style={{
-              padding: "8px 16px",
+              padding: "8px 12px",
               backgroundColor: "#fa6b47",
               color: "white",
               border: "none",
@@ -69,7 +63,7 @@ const { lang = "es" } = Astro.props;
             onmouseenter="this.style.backgroundColor='#e85a36'"
             onmouseleave="this.style.backgroundColor='#fa6b47'"
           >
-            {lang === "es" ? "EN" : "ES"}
+            {lang === "es" ? "English" : "Español"}
           </button>
         </div>
       </div>
@@ -79,86 +73,76 @@ const { lang = "es" } = Astro.props;
     <div class="container">
       <div class="st-main-header-in">
         <div class="st-main-header-left">
-          <a class="st-site-branding" href="#home" id="home-link">
-            <img src="/logo-256.png" alt="Logotipo José A. Avellaneda" />
+          <a
+            class="st-site-branding"
+            href={lang === "es" ? "/" : "/en"}
+            id="home-link"
+          >
+            <img src="/logo-256.png" alt="Dr. Aldo Avellaneda" />
           </a>
         </div>
         <div class="st-main-header-right">
           <div class="st-nav">
-            <ul class="st-nav-list st-onepage-nav">
-              <li>
-                <a href="#home" class="st-smooth-move" data-target="home">
+            <ul class="st-nav-list">
+              <li class="menu-item-has-children" id="home-menu-item">
+                <a href={lang === "es" ? "/" : "/en"}>
                   {t("header.nav.home", lang)}
                 </a>
+                <ul id="home-submenu">
+                  <li>
+                    <a href="#about" class="st-smooth-move" data-target="about">
+                      {t("header.homeSubmenu.aboutSection", lang)}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#appointment"
+                      class="st-smooth-move"
+                      data-target="appointment"
+                    >
+                      {t("header.homeSubmenu.appointment", lang)}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#gallery"
+                      class="st-smooth-move"
+                      data-target="gallery"
+                    >
+                      {t("header.homeSubmenu.gallery", lang)}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#testimonials"
+                      class="st-smooth-move"
+                      data-target="testimonials"
+                    >
+                      {t("header.homeSubmenu.testimonials", lang)}
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li>
-                <a href="#about" class="st-smooth-move" data-target="about">
+                <a
+                  href={lang === "es"
+                    ? "/acerca-del-dr-aldo-avellaneda"
+                    : "/en/about-dr-aldo-avellaneda"}
+                >
                   {t("header.nav.about", lang)}
                 </a>
               </li>
               <li>
                 <a
-                  href="#department"
-                  class="st-smooth-move"
-                  data-target="department"
+                  href={lang === "es"
+                    ? "/cirugia-de-columna"
+                    : "/en/spine-surgery"}
                 >
-                  {t("header.nav.department", lang)}
+                  {t("header.nav.spineSurgery", lang)}
                 </a>
               </li>
               <li>
-                <a href="#doctors" class="st-smooth-move" data-target="doctors">
-                  {t("header.nav.doctors", lang)}
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" class="st-smooth-move" data-target="gallery">
-                  {t("header.nav.gallery", lang)}
-                </a>
-              </li>
-              <li>
-                <a href="#price" class="st-smooth-move" data-target="price">
-                  {t("header.nav.pricing", lang)}
-                </a>
-              </li>
-              <li class="menu-item-has-children">
-                <a href="#blog" class="st-smooth-move" data-target="blog">
-                  {t("header.nav.blog", lang)}
-                </a>
-                <ul>
-                  <li>
-                    <a href="blog-right-sidebar.html"
-                      >{t("header.blogSubmenu.rightSidebar", lang)}</a
-                    >
-                  </li>
-                  <li>
-                    <a href="blog-left-sidebar.html"
-                      >{t("header.blogSubmenu.leftSidebar", lang)}</a
-                    >
-                  </li>
-                  <li>
-                    <a href="blog-no-sidebar.html"
-                      >{t("header.blogSubmenu.noSidebar", lang)}</a
-                    >
-                  </li>
-                  <li>
-                    <a href="blog-details-right-sidebar.html"
-                      >{t("header.blogSubmenu.detailsRightSidebar", lang)}</a
-                    >
-                  </li>
-                  <li>
-                    <a href="blog-details-left-sidebar.html"
-                      >{t("header.blogSubmenu.detailsLeftSidebar", lang)}</a
-                    >
-                  </li>
-                  <li>
-                    <a href="blog-details-no-sidebar.html"
-                      >{t("header.blogSubmenu.detailsNoSidebar", lang)}</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#contact" class="st-smooth-move" data-target="contact">
+                <a href={lang === "es" ? "/contacto" : "/en/contact"}>
                   {t("header.nav.contact", lang)}
                 </a>
               </li>
@@ -172,29 +156,56 @@ const { lang = "es" } = Astro.props;
 </header>
 
 <script>
-  // Smooth scroll functionality
+  // Detect if we're on homepage
+  const isHomepage =
+    window.location.pathname === "/" ||
+    window.location.pathname === "/en" ||
+    window.location.pathname === "/en/";
+
+  // Show/hide home submenu based on current page
+  const homeMenuItem = document.getElementById("home-menu-item");
+  const homeSubmenu = document.getElementById("home-submenu");
+
+  if (!isHomepage && homeSubmenu) {
+    // Hide submenu when not on homepage
+    homeSubmenu.style.display = "none";
+    if (homeMenuItem) {
+      homeMenuItem.classList.remove("menu-item-has-children");
+    }
+  }
+
+  // Smooth scroll functionality (only works on homepage)
   document.querySelectorAll("a.st-smooth-move").forEach((link) => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
       if (href?.startsWith("#")) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
+        if (isHomepage) {
+          // We're on homepage, do smooth scroll
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          // Not on homepage, let the link navigate normally to homepage with hash
+          // No need to prevent default, browser will handle it
         }
       }
     });
   });
 
-  // Appointment button smooth scroll
+  // Appointment button navigation
   const appointmentBtn = document.getElementById("appointment-btn");
   if (appointmentBtn) {
     appointmentBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const target = document.getElementById("appointment");
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+      if (isHomepage) {
+        e.preventDefault();
+        const target = document.getElementById("appointment");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
       }
+      // If not homepage, let the href handle navigation
     });
   }
 
@@ -204,9 +215,25 @@ const { lang = "es" } = Astro.props;
     langToggle.addEventListener("click", () => {
       const currentPath = window.location.pathname;
       const isEnglish = currentPath.startsWith("/en");
-      const newPath = isEnglish
-        ? currentPath.replace(/^\/en/, "") || "/"
-        : `/en${currentPath}`;
+
+      let newPath;
+      if (isEnglish) {
+        // Switch from EN to ES
+        newPath = currentPath.replace(/^\/en/, "") || "/";
+      } else {
+        // Switch from ES to EN
+        if (currentPath === "/") {
+          newPath = "/en";
+        } else {
+          newPath = `/en${currentPath}`;
+        }
+      }
+
+      // Preserve hash if present
+      if (window.location.hash) {
+        newPath += window.location.hash;
+      }
+
       window.location.href = newPath;
     });
   }

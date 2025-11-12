@@ -1,0 +1,211 @@
+---
+import { t } from "../../i18n/translations";
+
+interface Props {
+  lang?: "es" | "en";
+}
+
+const { lang = "es" } = Astro.props;
+
+interface Point {
+  title: string;
+  description: string;
+}
+
+const pointsData = t("sections.whyChoose.points", lang) as any;
+const points: Point[] = Array.isArray(pointsData)
+  ? pointsData.map((item: any) => ({
+      title: item.title,
+      description: item.description,
+    }))
+  : [];
+---
+
+<section class="why-choose-section">
+  <div class="st-height-b120 st-height-lg-b50"></div>
+  <div class="container">
+    <div class="why-choose-container">
+      <div class="why-choose-content">
+        {/* Columna de la imagen */}
+        <div class="why-choose-image">
+          <img
+            src="/gallery/67c01397438220389c370325_Dr-Aldo-two.png"
+            alt={lang === "es"
+              ? "Dr. Aldo Avellaneda - Cirujano de Columna"
+              : "Dr. Aldo Avellaneda - Spine Surgeon"}
+          />
+        </div>
+
+        {/* Columna del texto */}
+        <div class="why-choose-text">
+          <h2 class="why-choose-title">
+            {t("sections.whyChoose.title", lang)}
+          </h2>
+          <p class="why-choose-subtitle">
+            {t("sections.whyChoose.subtitle", lang)}
+          </p>
+
+          <ul class="why-choose-list">
+            {
+              points.map((point) => (
+                <li class="why-choose-item">
+                  <strong>{point.title}</strong> {point.description}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="st-height-b120 st-height-lg-b50"></div>
+</section>
+
+<style>
+  .why-choose-section {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .why-choose-container {
+    background: linear-gradient(135deg, #0ba5bb 0%, #0c8ea0 100%);
+    border-radius: 40px;
+    padding: 60px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .why-choose-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .why-choose-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .why-choose-image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    object-fit: contain;
+  }
+
+  .why-choose-text {
+    color: white;
+  }
+
+  .why-choose-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+    color: white;
+  }
+
+  .why-choose-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 30px 0;
+    opacity: 0.95;
+  }
+
+  .why-choose-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .why-choose-item {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    padding-left: 25px;
+    position: relative;
+  }
+
+  .why-choose-item::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: white;
+  }
+
+  .why-choose-item strong {
+    font-weight: 700;
+  }
+
+  .why-choose-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .why-choose-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .why-choose-container {
+      padding: 50px 40px;
+      border-radius: 30px;
+    }
+
+    .why-choose-image {
+      order: 2;
+    }
+
+    .why-choose-text {
+      order: 1;
+    }
+
+    .why-choose-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .why-choose-container {
+      padding: 40px 30px;
+      border-radius: 25px;
+    }
+
+    .why-choose-title {
+      font-size: 1.75rem;
+    }
+
+    .why-choose-subtitle {
+      font-size: 1rem;
+    }
+
+    .why-choose-item {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .why-choose-container {
+      padding: 30px 20px;
+      border-radius: 20px;
+    }
+
+    .why-choose-title {
+      font-size: 1.5rem;
+    }
+
+    .why-choose-subtitle {
+      font-size: 0.95rem;
+    }
+
+    .why-choose-item {
+      font-size: 0.9rem;
+      padding-left: 20px;
+    }
+  }
+</style>
