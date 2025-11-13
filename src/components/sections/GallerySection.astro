@@ -1,11 +1,11 @@
 ---
-import { t } from '../../i18n/translations';
+import { t } from "../../i18n/translations";
 
 interface Props {
-  lang?: 'es' | 'en';
+  lang?: "es" | "en";
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = "es" } = Astro.props;
 
 interface GalleryItem {
   id: string;
@@ -18,53 +18,67 @@ interface GalleryItem {
 // Datos de galería
 const galleryItems: GalleryItem[] = [
   {
-    id: '1',
-    src: '/project1_lg.jpg',
-    thumb: '/project1.jpg',
-    alt: 'project1',
-    categories: ['cardiology', 'urology'],
+    id: "1",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-en-accion-01.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-en-accion-01-small.jpg",
+    alt: "Dr. José Aldo Avellaneda durante procedimiento quirúrgico - Cirujano realizando operación",
+    categories: ["surgery"],
   },
   {
-    id: '2',
-    src: '/project2_lg.jpg',
-    thumb: '/project2.jpg',
-    alt: 'project2',
-    categories: ['cardiology', 'neurology'],
+    id: "2",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-en-accion-02.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-en-accion-02-small.jpg",
+    alt: "Dr. José Aldo Avellaneda en cirugía - Equipo médico en quirófano",
+    categories: ["surgery"],
   },
   {
-    id: '3',
-    src: '/project3_lg.jpg',
-    thumb: '/project3.jpg',
-    alt: 'project3',
-    categories: ['urology', 'pulmonary'],
+    id: "3",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-05.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-05-small.jpg",
+    alt: "Dr. José Aldo Avellaneda con paciente satisfecho - Excelencia en cirugía",
+    categories: ["success"],
   },
   {
-    id: '4',
-    src: '/project4_lg.jpg',
-    thumb: '/project4.jpg',
-    alt: 'project4',
-    categories: ['neurology', 'traumatology'],
+    id: "4",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-en-accion-03.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-en-accion-03-small.jpg",
+    alt: "Dr. José Aldo Avellaneda durante operación - Cirugía de alta precisión",
+    categories: ["surgery"],
   },
   {
-    id: '5',
-    src: '/project5_lg.jpg',
-    thumb: '/project5.jpg',
-    alt: 'project5',
-    categories: ['cardiology', 'pulmonary'],
+    id: "5",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-04.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-04-small.jpg",
+    alt: "Dr. José Aldo Avellaneda con paciente - Atención médica de calidad",
+    categories: ["success"],
   },
   {
-    id: '6',
-    src: '/project6_lg.jpg',
-    thumb: '/project6.jpg',
-    alt: 'project6',
-    categories: ['neurology', 'traumatology'],
+    id: "6",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-01.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-01-small.jpg",
+    alt: "Dr. José Aldo Avellaneda con paciente satisfecho - Testimonio de éxito quirúrgico",
+    categories: ["success"],
   },
   {
-    id: '7',
-    src: '/project7_lg.jpg',
-    thumb: '/project7.jpg',
-    alt: 'project7',
-    categories: ['urology', 'pulmonary', 'traumatology'],
+    id: "7",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-en-accion-04.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-en-accion-04-small.jpg",
+    alt: "Dr. José Aldo Avellaneda realizando procedimiento quirúrgico - Especialista en acción",
+    categories: ["surgery"],
+  },
+  {
+    id: "8",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-02.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-02-small.jpg",
+    alt: "Dr. José Aldo Avellaneda con paciente recuperado - Resultado exitoso de cirugía",
+    categories: ["success"],
+  },
+  {
+    id: "9",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-03.jpg",
+    thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-03-small.jpg",
+    alt: "Dr. José Aldo Avellaneda con paciente feliz - Testimonio de procedimiento exitoso",
+    categories: ["success"],
   },
 ];
 
@@ -74,12 +88,9 @@ interface Category {
 }
 
 const categoryConfig: Category[] = [
-  { key: '*', labelKey: 'sections.gallery.categories.all' },
-  { key: 'cardiology', labelKey: 'sections.gallery.categories.cardiology' },
-  { key: 'neurology', labelKey: 'sections.gallery.categories.neurology' },
-  { key: 'urology', labelKey: 'sections.gallery.categories.urology' },
-  { key: 'pulmonary', labelKey: 'sections.gallery.categories.pulmonary' },
-  { key: 'traumatology', labelKey: 'sections.gallery.categories.traumatology' },
+  { key: "*", labelKey: "sections.gallery.categories.all" },
+  { key: "surgery", labelKey: "sections.gallery.categories.surgery" },
+  { key: "success", labelKey: "sections.gallery.categories.success" },
 ];
 ---
 
@@ -87,13 +98,16 @@ const categoryConfig: Category[] = [
   <div class="st-height-b120 st-height-lg-b50"></div>
   <div class="container">
     <div class="st-section-heading st-style1">
-      <h2 class="st-section-heading-title">{t('sections.gallery.title', lang)}</h2>
+      <h2 class="st-section-heading-title">
+        {t("sections.gallery.title", lang)}
+      </h2>
       <div class="st-seperator">
         <div
           class="st-seperator-left wow fadeInLeft"
           data-wow-duration="1s"
           data-wow-delay="0.2s"
-        ></div>
+        >
+        </div>
         <div class="st-seperator-center">
           <img src="/icons/4.png" alt="icon" />
         </div>
@@ -101,27 +115,25 @@ const categoryConfig: Category[] = [
           class="st-seperator-right wow fadeInRight"
           data-wow-duration="1s"
           data-wow-delay="0.2s"
-        ></div>
+        >
+        </div>
       </div>
-      <div class="st-section-heading-subtitle">{t('sections.gallery.subtitle', lang)}</div>
     </div>
-    <div class="st-height-b40 st-height-lg-b40"></div>
   </div>
   <div class="container">
     <div class="st-portfolio-wrapper">
       {/* Isotope Filter */}
       <div class="st-isotop-filter st-style1 text-center">
         <ul class="st-mp0">
-          {categoryConfig.map((cat) => (
-            <li key={cat.key} class={cat.key === '*' ? 'active' : ''}>
-              <a
-                href="#"
-                data-filter={cat.key === '*' ? '*' : `.${cat.key}`}
-              >
-                {t(cat.labelKey, lang)}
-              </a>
-            </li>
-          ))}
+          {
+            categoryConfig.map((cat) => (
+              <li key={cat.key} class={cat.key === "*" ? "active" : ""}>
+                <a href="#" data-filter={cat.key === "*" ? "*" : `.${cat.key}`}>
+                  {t(cat.labelKey, lang)}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
@@ -131,25 +143,29 @@ const categoryConfig: Category[] = [
         id="gallery-lightgallery"
       >
         <div class="st-grid-sizer"></div>
-        {galleryItems.map((item) => (
-          <div key={item.id} class={`st-isotop-item ${item.categories.join(' ')}`}>
-            <a
-              href={item.src}
-              class="st-project st-zoom st-lightbox-item st-link-hover-wrap"
+        {
+          galleryItems.map((item) => (
+            <div
+              key={item.id}
+              class={`st-isotop-item ${item.categories.join(" ")}`}
             >
-              <div class="st-project-img st-zoom-in">
-                <img src={item.thumb} alt={item.alt} />
-              </div>
-              <span class="st-link-hover">
-                <i class="fas fa-arrows-alt"></i>
-              </span>
-            </a>
-          </div>
-        ))}
+              <a
+                href={item.src}
+                class="st-project st-zoom st-lightbox-item st-link-hover-wrap"
+              >
+                <div class="st-project-img st-zoom-in">
+                  <img src={item.thumb} alt={item.alt} />
+                </div>
+                <span class="st-link-hover">
+                  <i class="fas fa-arrows-alt" />
+                </span>
+              </a>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
-  <div class="st-height-b120 st-height-lg-b50"></div>
 </section>
 
 <script>
@@ -158,19 +174,19 @@ const categoryConfig: Category[] = [
     const $ = (window as any).$;
 
     if (!$) {
-      console.warn('jQuery is not available');
+      console.warn("jQuery is not available");
       return;
     }
 
     const timer = setTimeout(() => {
-      const $grid = $('.st-isotop');
+      const $grid = $(".st-isotop");
       if ($grid.length && $.fn.isotope) {
         $grid.isotope({
-          itemSelector: '.st-isotop-item',
-          transitionDuration: '0.60s',
+          itemSelector: ".st-isotop-item",
+          transitionDuration: "0.60s",
           percentPosition: true,
           masonry: {
-            columnWidth: '.st-grid-sizer',
+            columnWidth: ".st-grid-sizer",
           },
         });
       }
@@ -184,31 +200,33 @@ const categoryConfig: Category[] = [
     const $ = (window as any).$;
 
     if (!$) {
-      console.warn('jQuery is not available');
+      console.warn("jQuery is not available");
       return;
     }
 
     const timer = setTimeout(() => {
-      const $gallery = $('#gallery-lightgallery');
+      const $gallery = $("#gallery-lightgallery");
       if ($gallery.length) {
         // Destruir instancia anterior si existe
-        const galleryElement = document.getElementById('gallery-lightgallery') as any;
+        const galleryElement = document.getElementById(
+          "gallery-lightgallery"
+        ) as any;
         if (galleryElement && galleryElement.lg) {
           try {
             galleryElement.lg.destroy(true);
           } catch (e) {
-            console.log('No previous instance to destroy');
+            console.log("No previous instance to destroy");
           }
         }
 
         // Inicializar lightGallery
         $gallery.lightGallery({
-          selector: '.st-lightbox-item',
+          selector: ".st-lightbox-item",
           thumbnail: true,
           showThumbByDefault: true,
           speed: 500,
           zoom: true,
-          mode: 'lg-fade',
+          mode: "lg-fade",
         });
       }
     }, 100);
@@ -221,25 +239,26 @@ const categoryConfig: Category[] = [
     const $ = (window as any).$;
     if (!$ || !$.fn.isotope) return;
 
-    document.querySelectorAll('.st-isotop-filter a').forEach((link) => {
-      link.addEventListener('click', (e) => {
+    document.querySelectorAll(".st-isotop-filter a").forEach((link) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
-        const filterValue = (e.target as HTMLElement).getAttribute('data-filter') || '*';
+        const filterValue =
+          (e.target as HTMLElement).getAttribute("data-filter") || "*";
 
         // Actualizar clase activa
-        document.querySelectorAll('.st-isotop-filter li').forEach(li => {
-          li.classList.remove('active');
+        document.querySelectorAll(".st-isotop-filter li").forEach((li) => {
+          li.classList.remove("active");
         });
-        (e.target as HTMLElement).closest('li')?.classList.add('active');
+        (e.target as HTMLElement).closest("li")?.classList.add("active");
 
         // Aplicar filtro Isotope
-        $('.st-isotop').isotope({ filter: filterValue });
+        $(".st-isotop").isotope({ filter: filterValue });
       });
     });
   }
 
   // Esperar a que jQuery esté disponible
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const checkInterval = setInterval(() => {
       const $ = (window as any).$;
       if ($ && $.fn.isotope && $.fn.lightGallery) {

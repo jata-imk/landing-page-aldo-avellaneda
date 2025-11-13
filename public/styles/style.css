@@ -5153,7 +5153,7 @@ hr {
   border-color: #ff375f;
 }
 .st-form-field.st-style1 textarea {
-  height: 150px;
+  height: 75px;
 }
 .st-form-field.st-style1 label {
   display: block;
@@ -6748,9 +6748,9 @@ hr {
 .st-footer-widget-title {
   font-size: 20px;
   position: relative;
-  padding-bottom: 17px;
+  padding-bottom: 15px;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   margin-top: -4px;
   color: #0cb8b6;
   font-weight: 600;
@@ -6843,9 +6843,8 @@ hr {
 }
 
 .st-footer-contact-list li {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
   margin-bottom: 15px;
 }
 .st-footer-contact-list li span {

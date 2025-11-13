@@ -10,15 +10,15 @@ import WhyChooseSection from "../components/sections/WhyChooseSection.astro";
 import TestimonialsSection from "../components/sections/TestimonialsSection.astro";
 import MapSection from "../components/sections/MapSection.astro";
 
-const title = "Dr. Juan Pérez - Cardiología | Clínica Nischinto";
+const title = "Dr. José Aldo Avellaneda - Cirugía de Columna Vertebral | Especialista en Mérida, Yucatán";
 const description =
-  "Servicio profesional de cardiología y medicina general. Dr. Juan Pérez - Especialista en Cardiología en San Diego.";
+  "Cirujano de columna vertebral altamente especializado en procedimientos complejos y técnicas mínimamente invasivas. Atención a pacientes de México, EE.UU. y Canadá en Mérida, Yucatán.";
 const lang = "es";
 ---
 
 <MainLayout {title} {description} {lang} ogImage="/hero-img.png">
   <div class="st-content">
-    <Header {lang} />
+    <Header {lang} isHomepage={true} />
 
     <main>
       <HeroSection {lang} />

@@ -15,7 +15,7 @@
   "header": {
     "topHeader": {
       "phone": "+52 999 386 8869",
-      "appointmentBtn": "Book Appointment"
+      "appointmentBtn": "I want to schedule an appointment"
     },
     "nav": {
       "home": "Home",
@@ -25,9 +25,10 @@
     },
     "homeSubmenu": {
       "aboutSection": "About",
-      "appointment": "Book Appointment",
       "gallery": "Gallery",
-      "testimonials": "Testimonials"
+      "testimonials": "Testimonials",
+      "whyChoose": "Why Choose Us?",
+      "appointment": "Book Appointment"
     }
   },
   "sections": {
@@ -70,11 +71,8 @@
       "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum the industry's standard dummy text.",
       "categories": {
         "all": "All",
-        "cardiology": "Cardiology",
-        "neurology": "Neurology",
-        "urology": "Urology",
-        "pulmonary": "Pulmonary",
-        "traumatology": "Traumatology"
+        "surgery": "During Surgery",
+        "success": "After Success"
       }
     },
     "testimonials": {
