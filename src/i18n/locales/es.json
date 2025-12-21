@@ -15,7 +15,7 @@
   "header": {
     "topHeader": {
       "phone": "+52 999 386 8869",
-      "appointmentBtn": "Agendar Cita"
+      "appointmentBtn": "Quiero agendar una cita"
     },
     "nav": {
       "home": "Inicio",
@@ -25,9 +25,10 @@
     },
     "homeSubmenu": {
       "aboutSection": "Acerca de",
-      "appointment": "Agendar Cita",
       "gallery": "Galería",
-      "testimonials": "Testimonios"
+      "testimonials": "Testimonios",
+      "whyChoose": "¿Por qué elegirnos?",
+      "appointment": "Agendar Cita"
     }
   },
   "sections": {
@@ -70,11 +71,8 @@
       "subtitle": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y composición. Lorem Ipsum es el texto ficticio estándar de la industria.",
       "categories": {
         "all": "Todas",
-        "cardiology": "Cardiología",
-        "neurology": "Neurología",
-        "urology": "Urología",
-        "pulmonary": "Neumología",
-        "traumatology": "Traumatología"
+        "surgery": "Durante la cirugía",
+        "success": "Después del éxito"
       }
     },
     "testimonials": {

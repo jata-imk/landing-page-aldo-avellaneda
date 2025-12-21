@@ -10,14 +10,14 @@ import WhyChooseSection from '../../components/sections/WhyChooseSection.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import MapSection from '../../components/sections/MapSection.astro';
 
-const title = 'Dr. Juan Pérez - Cardiology | Nischinto Clinic';
-const description = 'Professional cardiology and general medicine service. Dr. Juan Pérez - Cardiology Specialist in San Diego.';
+const title = 'Dr. José Aldo Avellaneda - Spine Surgery Specialist | Mérida, Yucatán';
+const description = 'Highly specialized spine surgeon expert in complex procedures and minimally invasive techniques. Serving patients from Mexico, U.S., and Canada in Mérida, Yucatán.';
 const lang = 'en';
 ---
 
 <MainLayout {title} {description} {lang} ogImage="/hero-img.png">
   <div class="st-content">
-    <Header {lang} />
+    <Header {lang} isHomepage={true} />
 
     <main>
       <HeroSection {lang} />

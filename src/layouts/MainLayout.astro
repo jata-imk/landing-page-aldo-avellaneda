@@ -13,22 +13,28 @@ const { title, description, lang, ogImage = "/hero-img.png" } = Astro.props;
 const schema = {
   "@context": "https://schema.org",
   "@type": "Physician",
-  name: "Dr. Juan Pérez",
-  specialty: "Cardiología",
+  name: "Dr. José Aldo Avellaneda",
+  specialty: lang === "es" ? "Cirugía de Columna Vertebral" : "Spine Surgery",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "1223 Fulton Street",
-    addressLocality: "San Diego",
-    postalCode: "941-23",
-    addressCountry: "US",
+    streetAddress: "Hospital Faro del Mayab, Calle 24 S/N-Consultorio 607, Temozón Norte, Santa Gertrudis Copó",
+    addressLocality: "Mérida",
+    addressRegion: "Yucatán",
+    postalCode: "97300",
+    addressCountry: "MX",
   },
-  telephone: "+01-234-567-890",
-  email: "info@nischinto.com",
+  telephone: "+52 999 386 8869",
+  url: "https://www.draldoavellaneda.com",
+  sameAs: [
+    "https://www.facebook.com/DrAldoAvellaneda/?locale=es_LA",
+    "https://www.instagram.com/dr.aldo.avellaneda/",
+    "https://www.linkedin.com/"
+  ],
 };
 
 const canonicalURL = Astro.site
   ? new URL(Astro.url.pathname, Astro.site)
-  : new URL(Astro.url.pathname, "https://example.com");
+  : new URL(Astro.url.pathname, "https://www.draldoavellaneda.com");
 ---
 
 <!doctype html>
@@ -51,7 +57,7 @@ const canonicalURL = Astro.site
       property="og:image"
       content={Astro.site
         ? new URL(ogImage, Astro.site).href
-        : `https://example.com${ogImage}`}
+        : `https://www.draldoavellaneda.com${ogImage}`}
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -65,7 +71,7 @@ const canonicalURL = Astro.site
       name="twitter:image"
       content={Astro.site
         ? new URL(ogImage, Astro.site).href
-        : `https://example.com${ogImage}`}
+        : `https://www.draldoavellaneda.com${ogImage}`}
     />
 
     <!-- Schema.org Structured Data -->
@@ -75,7 +81,7 @@ const canonicalURL = Astro.site
     <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
     <!-- Preload fonts y recursos críticos -->
     <link rel="preload" href="/styles/bootstrap.min.css" as="style" />

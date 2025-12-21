@@ -16,7 +16,7 @@ const { lang = "es" } = Astro.props;
   <div class="st-main-footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="st-footer-widget">
             <div class="st-text-field">
               <img src="/logo-128.png" alt="Nischinto" class="st-footer-logo" />
@@ -24,12 +24,77 @@ const { lang = "es" } = Astro.props;
               <div class="st-footer-text">{t("footer.description", lang)}</div>
               <div class="st-height-b25 st-height-lg-b25"></div>
               <ul class="st-social-btn st-style1 st-mp0">
-                <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fab fa-pinterest-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/DrAldoAvellaneda/?locale=es_LA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <i class="fab fa-facebook-square"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/dr.aldo.avellaneda/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
               </ul>
             </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="st-footer-widget">
+            <h2 class="st-footer-widget-title">
+              {t("footer.contacts.title", lang)}
+            </h2>
+            <ul class="st-footer-contact-list st-mp0">
+              <li>
+                <span class="st-footer-contact-title"
+                  >{t("footer.contacts.addressLabel", lang)}</span
+                >
+                {t("footer.contacts.address", lang)}
+              </li>
+              <li>
+                <span class="st-footer-contact-title"
+                  >{t("footer.contacts.phoneLabel", lang)}</span
+                >
+                <span class="st-footer-contact-title"
+                  >{t("footer.contacts.phoneNationalLabel", lang)}</span
+                >
+                <a
+                  href={`tel:${t("footer.contacts.phoneNational", lang)}`}
+                  style="color: inherit;"
+                >
+                  {t("footer.contacts.phoneNational", lang)}
+                </a>
+                <br />
+                <span class="st-footer-contact-title"
+                  >{t("footer.contacts.phoneInternationalLabel", lang)}</span
+                >
+                <a
+                  href={`tel:${t("footer.contacts.phoneInternational", lang)}`}
+                  style="color: inherit;"
+                >
+                  {t("footer.contacts.phoneInternational", lang)}
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="col-lg-3">
@@ -72,46 +137,6 @@ const { lang = "es" } = Astro.props;
                   <i class="fas fa-chevron-right"></i>{
                     t("footer.usefulLinks.contact", lang)
                   }
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3"></div>
-        <div class="col-lg-3">
-          <div class="st-footer-widget">
-            <h2 class="st-footer-widget-title">
-              {t("footer.contacts.title", lang)}
-            </h2>
-            <ul class="st-footer-contact-list st-mp0">
-              <li>
-                <span class="st-footer-contact-title"
-                  >{t("footer.contacts.addressLabel", lang)}</span
-                >
-                {t("footer.contacts.address", lang)}
-              </li>
-              <li>
-                <span class="st-footer-contact-title"
-                  >{t("footer.contacts.phoneLabel", lang)}</span
-                >
-                <span class="st-footer-contact-title"
-                  >{t("footer.contacts.phoneNationalLabel", lang)}</span
-                >
-                <a
-                  href={`tel:${t("footer.contacts.phoneNational", lang)}`}
-                  style="color: inherit;"
-                >
-                  {t("footer.contacts.phoneNational", lang)}
-                </a>
-                <br />
-                <span class="st-footer-contact-title"
-                  >{t("footer.contacts.phoneInternationalLabel", lang)}</span
-                >
-                <a
-                  href={`tel:${t("footer.contacts.phoneInternational", lang)}`}
-                  style="color: inherit;"
-                >
-                  {t("footer.contacts.phoneInternational", lang)}
                 </a>
               </li>
             </ul>
