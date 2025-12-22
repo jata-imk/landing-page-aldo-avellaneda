@@ -1,10 +1,11 @@
 /* Import template styles from public/styles/ */
-@import '/styles/bootstrap.min.css';
-@import '/styles/fontawesome.css';
-@import '/styles/slick.css';
-@import './lightgallery.css'; /* Now processed by Vite from src/styles/ */
-@import '/styles/animate.css';
-@import '/styles/jQueryUi.min.css';
-@import '/styles/textRotate.css';
-@import '/styles/select2.min.css';
-@import '/styles/style.css';
+@import "/styles/bootstrap.min.css";
+@import "/styles/fontawesome.css";
+@import "/styles/slick.css";
+@import "/styles/slick-theme.css";
+@import "./lightgallery.css"; /* Now processed by Vite from src/styles/ */
+@import "/styles/animate.css";
+@import "/styles/jQueryUi.min.css";
+@import "/styles/textRotate.css";
+@import "/styles/select2.min.css";
+@import "/styles/style.css";

@@ -33,7 +33,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: "3",
-    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-05.jpg",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-05.JPG",
     thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-05-small.jpg",
     alt: "Dr. José Aldo Avellaneda con paciente satisfecho - Excelencia en cirugía",
     categories: ["success"],
@@ -47,14 +47,14 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: "5",
-    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-04.jpg",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-04.JPG",
     thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-04-small.jpg",
     alt: "Dr. José Aldo Avellaneda con paciente - Atención médica de calidad",
     categories: ["success"],
   },
   {
     id: "6",
-    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-01.jpg",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-01.JPG",
     thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-01-small.jpg",
     alt: "Dr. José Aldo Avellaneda con paciente satisfecho - Testimonio de éxito quirúrgico",
     categories: ["success"],
@@ -68,14 +68,14 @@ const galleryItems: GalleryItem[] = [
   },
   {
     id: "8",
-    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-02.jpg",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-02.JPG",
     thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-02-small.jpg",
     alt: "Dr. José Aldo Avellaneda con paciente recuperado - Resultado exitoso de cirugía",
     categories: ["success"],
   },
   {
     id: "9",
-    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-03.jpg",
+    src: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-03.JPG",
     thumb: "/light-gallery/dr-jose-aldo-avellaneda-pacientes-03-small.jpg",
     alt: "Dr. José Aldo Avellaneda con paciente feliz - Testimonio de procedimiento exitoso",
     categories: ["success"],
@@ -127,7 +127,7 @@ const categoryConfig: Category[] = [
         <ul class="st-mp0">
           {
             categoryConfig.map((cat) => (
-              <li key={cat.key} class={cat.key === "*" ? "active" : ""}>
+              <li class={cat.key === "*" ? "active" : ""}>
                 <a href="#" data-filter={cat.key === "*" ? "*" : `.${cat.key}`}>
                   {t(cat.labelKey, lang)}
                 </a>
@@ -145,10 +145,7 @@ const categoryConfig: Category[] = [
         <div class="st-grid-sizer"></div>
         {
           galleryItems.map((item) => (
-            <div
-              key={item.id}
-              class={`st-isotop-item ${item.categories.join(" ")}`}
-            >
+            <div class={`st-isotop-item ${item.categories.join(" ")}`}>
               <a
                 href={item.src}
                 class="st-project st-zoom st-lightbox-item st-link-hover-wrap"

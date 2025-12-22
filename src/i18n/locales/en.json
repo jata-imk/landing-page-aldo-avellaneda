@@ -79,6 +79,16 @@
       "title": "Our Patients' Reviews",
       "subtitle": "Real reviews from patients on Google Maps who have trusted Dr. Aldo Avellaneda's expertise."
     },
+    "googleReviews": {
+      "title": "What Our Patients Say",
+      "subtitle": "Real Google Maps reviews from patients who have trusted Dr. Aldo Avellaneda's expertise.",
+      "topRated": "Top Rated Clinic",
+      "writeReview": "Write a review",
+      "summaryText": "Our patients praise the seamless and professional experience our clinic offers. They highlight the efficient communication, careful procedures, and overall effective results.",
+      "readMore": "Read more",
+      "readLess": "Read less",
+      "viewAllButton": "View all reviews on Google Maps"
+    },
     "whyChoose": {
       "title": "Why Choose Dr. Avellaneda?",
       "subtitle": "Patients from Mexico, the U.S., and Canada choose Dr. Avellaneda for his unmatched experience, accessibility, and patient-centered approach.",
@@ -157,5 +167,142 @@
       "phoneInternationalLabel": "International:"
     },
     "copyright": "© 2025 Dr. Aldo Avellaneda. All rights reserved."
+  },
+  "pages": {
+    "contact": {
+      "title": "Contact - Dr. Aldo Avellaneda",
+      "description": "Contact us to schedule an appointment or request more information about our spine surgery services.",
+      "hero": {
+        "title": "Contact",
+        "subtitle": "We're here to help you"
+      },
+      "sectionTitle": "How to get in touch with us",
+      "cards": {
+        "address": {
+          "title": "Clinic Address:",
+          "address": "Hospital Faro del Mayab, Calle 24 S/N-Office 607, Temozón Norte, Santa Gertrudis Copó, 97300 Mérida, Yucatán, México"
+        },
+        "phone": {
+          "title": "Phone:",
+          "national": "+52 999 386 8869",
+          "internationalLabel": "Int. Patients:",
+          "international": "+1 855-374-6300"
+        },
+        "virtualConsultations": {
+          "title": "Virtual Consultations",
+          "description": "For international patients, we offer <strong>virtual consultations</strong> to analyze your case before scheduling surgery in Mexico. Our team can guide you through the process, from evaluation to recovery."
+        },
+        "hours": {
+          "title": "Office Hours",
+          "mondayToFriday": "Monday to Friday:",
+          "mondayToFridayHours": "9:00 AM - 6:00 PM",
+          "saturday": "Saturdays:",
+          "saturdayHours": "9:00 AM - 2:00 PM",
+          "sunday": "Sundays:",
+          "sundayHours": "Closed",
+          "note": "*By appointment only"
+        },
+        "whatsapp": {
+          "title": "Contact us on WhatsApp!",
+          "description": "The <strong>easiest and fastest</strong> way to reach us. Send us a message and we'll respond within minutes. It's simple, direct, and hassle-free!",
+          "buttonText": "Send WhatsApp message"
+        }
+      }
+    },
+    "aboutDrAldo": {
+      "title": "About Dr. Aldo Avellaneda - Spine Surgeon",
+      "description": "Meet Dr. Aldo Avellaneda, highly qualified spine surgeon specialized in complex procedures and minimally invasive techniques.",
+      "hero": {
+        "title": "Dr. Aldo Avellaneda",
+        "subtitle": "Spine Surgeon"
+      },
+      "mainContent": {
+        "title": "Spine Surgery Specialist",
+        "paragraph1": "Dr. Aldo Avellaneda is a highly qualified spine surgeon who specializes in complex spinal procedures and minimally invasive techniques.",
+        "paragraph2": "With extensive training and years of experience, he has established himself as a trusted expert in the treatment of severe spinal conditions, including cases that were previously considered inoperable.",
+        "button": "Schedule an Appointment"
+      },
+      "specialties": {
+        "title": "Specialties",
+        "subtitle": "Specialized spine surgery services with cutting-edge techniques",
+        "items": [
+          {
+            "title": "Minimally Invasive Surgery",
+            "description": "Advanced spine techniques that reduce recovery time and minimize surgical trauma."
+          },
+          {
+            "title": "Complex Disc Herniations",
+            "description": "Specialized treatment of complex disc herniations with personalized approach for each patient."
+          },
+          {
+            "title": "Scoliosis and Deformities",
+            "description": "Surgical correction of scoliosis and other spinal deformities with state-of-the-art technology."
+          },
+          {
+            "title": "Spinal Fusion",
+            "description": "Advanced spinal fusion procedures to stabilize and relieve pain in degenerative conditions."
+          },
+          {
+            "title": "Spinal Stenosis",
+            "description": "Effective treatment of spinal stenosis to relieve nerve compression and improve mobility."
+          },
+          {
+            "title": "Spinal Tumors",
+            "description": "Specialized surgery for spinal tumors with precise techniques and comprehensive patient care."
+          }
+        ]
+      },
+      "timeline": {
+        "mainTitle": "Dr. Aldo's expertise in spine surgery:",
+        "mainSubtitle": "Education and innovations",
+        "education": {
+          "title": "Education and specialized training",
+          "description": "Dr. Aldo's education and specialized training have positioned him as a <strong>leader in spine surgery, particularly in complex and minimally invasive procedures</strong>. His academic and professional training includes:",
+          "items": [
+            "<strong>Bachelor's Degree in Medicine and Surgery</strong> from the National Autonomous University of Mexico (UNAM).",
+            "<strong>Diplomas in Medicine and Complexity Sciences and Emergency Medicine</strong> from the National Autonomous University of Mexico (UNAM).",
+            "<strong>Specialization in Orthopedics</strong> from the National Autonomous University of Mexico (UNAM).",
+            "<strong>Advanced training in minimally invasive spine surgery</strong> — Multiple international programs focused on endoscopic and robot-assisted techniques."
+          ]
+        },
+        "experience": {
+          "title": "Professional experience and career highlights",
+          "description": "Dr. Aldo combines <strong>surgical expertise with academic contributions</strong>, regularly training other surgeons and contributing to the advancement of spine surgery. His career includes:",
+          "items": [
+            "<strong>Professor at the Yucatan College of Orthopedics,</strong> leading specialized sessions on early-onset scoliosis (2019).",
+            "<strong>Speaker at the National Congress of Spine Surgery in Mexico (2017),</strong> presentation on advanced surgical techniques.",
+            "<strong>Faculty member at the National Autonomous University of Mexico (UNAM) (2012),</strong> teaching orthopedics and respiratory system courses.",
+            "<strong>Performing over 300 to 400 spine surgeries per year,</strong> making him one of the most experienced spine specialists in the region."
+          ]
+        },
+        "certifications": {
+          "title": "Certifications, recognitions and memberships",
+          "description": "Dr. Aldo holds <strong>prestigious certifications and memberships</strong> that underscore his expertise and dedication to patient care:",
+          "items": [
+            "<strong>Board certification in orthopedic surgery —</strong> Certified by the Mexican Council of Traumatology and Orthopedics (2017-2022).",
+            "<strong>Active member of international spine surgery organizations,</strong> regularly interacting with world experts.",
+            "<strong>Regularly interacting with experts from around the world</strong> focused on advancing minimally invasive spine surgery."
+          ]
+        },
+        "continuousLearning": {
+          "title": "Commitment to continuous learning and medical innovation",
+          "description": "Dr. Aldo actively participates in <strong>continuing education, research and international collaboration</strong> to refine spine surgery techniques. His professional development includes:",
+          "items": [
+            "<strong>Symposium on spinal tumors and deformities —</strong> São Paulo, Brazil (2018).",
+            "<strong>Advanced practical course on cervical spine surgery —</strong> Rio de Janeiro, Brazil (2018).",
+            "<strong>Clinical skills laboratory for minimally invasive lumbar surgery —</strong> (2018).",
+            "<strong>Multiple courses and certifications from AOSpine Latin America,</strong> focusing on trauma, degenerative conditions and advanced minimally invasive techniques (2017).",
+            "<strong>Research on adult sagittal balance and cervical disc arthroplasty</strong> with AO North America (2017)."
+          ]
+        }
+      },
+      "contactInfo": {
+        "title": "Contact and consultation information",
+        "paragraph1": "If you are considering spine surgery and want to consult with <strong>one of the leading experts in the field</strong>, Dr. Aldo Avellaneda and his team are ready to help.",
+        "paragraph2": "Dr. Aldo is committed to providing <strong>personalized, innovative and effective spine care</strong> for local and international patients. Whether you are seeking to relieve chronic pain, seeking a second opinion or exploring minimally invasive surgical options, his expertise can guide you towards <strong>the best possible outcome</strong>.",
+        "button": "View contact",
+        "imageAlt": "Dr. Aldo Avellaneda with his team"
+      }
+    }
   }
 }

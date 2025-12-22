@@ -17,7 +17,8 @@ const schema = {
   specialty: lang === "es" ? "Cirugía de Columna Vertebral" : "Spine Surgery",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Hospital Faro del Mayab, Calle 24 S/N-Consultorio 607, Temozón Norte, Santa Gertrudis Copó",
+    streetAddress:
+      "Hospital Faro del Mayab, Calle 24 S/N-Consultorio 607, Temozón Norte, Santa Gertrudis Copó",
     addressLocality: "Mérida",
     addressRegion: "Yucatán",
     postalCode: "97300",
@@ -28,7 +29,7 @@ const schema = {
   sameAs: [
     "https://www.facebook.com/DrAldoAvellaneda/?locale=es_LA",
     "https://www.instagram.com/dr.aldo.avellaneda/",
-    "https://www.linkedin.com/"
+    "https://www.linkedin.com/",
   ],
 };
 
@@ -86,32 +87,22 @@ const canonicalURL = Astro.site
     <!-- Preload fonts y recursos críticos -->
     <link rel="preload" href="/styles/bootstrap.min.css" as="style" />
 
-    <!-- Facebook Pixel (Actualizar con tu Pixel ID) -->
-    <!-- <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1234567890'); // TODO: Cambiar con tu Pixel ID
-      fbq('track', 'PageView');
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1234567890&ev=PageView&noscript=1" />
-    </noscript> -->
-
     <!-- Google Analytics 4 (Actualizar con tu GA ID) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KEM1B2PKQJ"
+    ></script>
     <script>
+      /* @ts-ignore */
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX'); // TODO: Cambiar con tu GA ID
-    </script> -->
+      function gtag() {
+        /* @ts-ignore */
+        dataLayer.push(arguments);
+      }
+      /* @ts-ignore */
+      gtag("js", new Date());
+      /* @ts-ignore */
+      gtag("config", "G-KEM1B2PKQJ");
+    </script>
 
     <!-- Global Styles -->
   </head>

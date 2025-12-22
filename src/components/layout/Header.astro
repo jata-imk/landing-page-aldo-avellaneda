@@ -144,6 +144,7 @@ const { lang = "es", isHomepage = false } = Astro.props;
                   {t("header.nav.about", lang)}
                 </a>
               </li>
+              {/* Temporalmente comentado hasta que la página esté lista
               <li>
                 <a
                   href={lang === "es"
@@ -153,6 +154,7 @@ const { lang = "es", isHomepage = false } = Astro.props;
                   {t("header.nav.spineSurgery", lang)}
                 </a>
               </li>
+              */}
               <li>
                 <a href={lang === "es" ? "/contacto" : "/en/contact"}>
                   {t("header.nav.contact", lang)}
@@ -198,27 +200,47 @@ const { lang = "es", isHomepage = false } = Astro.props;
     });
   }
 
-  // Language switch
+  // Language switch with URL mapping
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) {
     langToggle.addEventListener("click", () => {
       const currentPath = window.location.pathname;
-      const isEnglish = currentPath.startsWith("/en");
 
-      let newPath;
-      if (isEnglish) {
-        // Switch from EN to ES
-        newPath = currentPath.replace(/^\/en/, "") || "/";
-      } else {
-        // Switch from ES to EN
-        if (currentPath === "/") {
-          newPath = "/en";
+      // Mapeo bidireccional de URLs entre español e inglés
+      const urlMappings = {
+        "/": "/en",
+        "/acerca-del-dr-aldo-avellaneda": "/en/about-dr-aldo-avellaneda",
+        // "/cirugia-de-columna": "/en/spine-surgery", // Temporalmente comentado
+        "/contacto": "/en/contact",
+        "/en": "/",
+        "/en/about-dr-aldo-avellaneda": "/acerca-del-dr-aldo-avellaneda",
+        // "/en/spine-surgery": "/cirugia-de-columna", // Temporalmente comentado
+        "/en/contact": "/contacto",
+      };
+
+      // Función para obtener la URL traducida
+      function getTranslatedUrl(path) {
+        // Normalizar path (remover trailing slash si existe, excepto para root)
+        const normalizedPath = path === "/" ? "/" : path.replace(/\/$/, "");
+
+        // Buscar mapeo exacto
+        if (urlMappings[normalizedPath]) {
+          return urlMappings[normalizedPath];
+        }
+
+        // Si no hay mapeo, usar lógica fallback (agregar/quitar /en)
+        const isEnglish = normalizedPath.startsWith("/en");
+        if (isEnglish) {
+          return normalizedPath.replace(/^\/en/, "") || "/";
         } else {
-          newPath = `/en${currentPath}`;
+          return normalizedPath === "/" ? "/en" : `/en${normalizedPath}`;
         }
       }
 
-      // Preserve hash if present
+      // Obtener la URL traducida
+      let newPath = getTranslatedUrl(currentPath);
+
+      // Preservar hash si existe
       if (window.location.hash) {
         newPath += window.location.hash;
       }

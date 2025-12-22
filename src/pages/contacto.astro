@@ -1,12 +1,13 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
-import AppointmentSection from '../components/sections/AppointmentSection.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import ContactContent from "../components/pages/ContactContent.astro";
+import { t } from "../i18n/translations";
 
-const title = 'Contacto - Dr. Aldo Avellaneda';
-const description = 'Contáctenos para agendar una cita o solicitar más información sobre nuestros servicios de cirugía de columna vertebral.';
-const lang = 'es';
+const lang = "es";
+const title = t("pages.contact.title", lang);
+const description = t("pages.contact.description", lang);
 ---
 
 <MainLayout {title} {description} {lang}>
@@ -14,131 +15,9 @@ const lang = 'es';
     <Header {lang} />
 
     <main>
-      <!-- Hero Section -->
-      <section class="st-page-heading st-dynamic-bg" style="background-image: url('/shape/contact-bg-shape.svg')">
-        <div class="container">
-          <div class="st-page-heading-in text-center">
-            <h1 class="st-page-heading-title">Contacto</h1>
-            <div class="st-page-heading-subtitle">Estamos aquí para ayudarle</div>
-          </div>
-        </div>
-      </section>
-      <div class="st-height-b120 st-height-lg-b80"></div>
-
-      <!-- Contact Information -->
-      <section class="container">
-        <div class="row">
-          <!-- Contact Info -->
-          <div class="col-lg-6">
-            <div class="st-section-heading st-style1">
-              <h2 class="st-section-heading-title">Información de Contacto</h2>
-              <div class="st-seperator">
-                <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-                <div class="st-seperator-center">
-                  <img src="/icons/4.png" alt="icon" />
-                </div>
-                <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-              </div>
-            </div>
-            <div class="st-height-b40 st-height-lg-b40"></div>
-
-            <!-- Location -->
-            <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
-              <div class="st-iconbox-icon">
-                <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-              </div>
-              <h4 class="st-iconbox-title">Dirección</h4>
-              <div class="st-iconbox-text">
-                Hospital Faro del Mayab<br />
-                Calle 24 S/N-Consultorio 607<br />
-                Temozón Norte, Santa Gertrudis Copó<br />
-                97300 Mérida, Yucatán, México
-              </div>
-            </div>
-
-            <!-- Phone -->
-            <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
-              <div class="st-iconbox-icon">
-                <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
-                  <path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.3-.5-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/>
-                </svg>
-              </div>
-              <h4 class="st-iconbox-title">Teléfonos</h4>
-              <div class="st-iconbox-text">
-                <strong>Nacional:</strong> <a href="tel:+529993868869" style="color: #fa6b47;">+52 999 386 8869</a><br />
-                <strong>Internacional:</strong> <a href="tel:+18553746300" style="color: #fa6b47;">+1 855-374-6300</a>
-              </div>
-            </div>
-
-            <!-- Hours -->
-            <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
-              <div class="st-iconbox-icon">
-                <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
-                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                </svg>
-              </div>
-              <h4 class="st-iconbox-title">Horario de Atención</h4>
-              <div class="st-iconbox-text">
-                <strong>Lunes a Viernes:</strong> 9:00 AM - 6:00 PM<br />
-                <strong>Sábados:</strong> 9:00 AM - 2:00 PM<br />
-                <strong>Domingos:</strong> Cerrado<br />
-                <em style="font-size: 14px; color: #666;">*Citas por appointment únicamente</em>
-              </div>
-            </div>
-          </div>
-
-          <!-- Map -->
-          <div class="col-lg-6">
-            <div class="st-google-map" style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.0!2d-89.617!3d21.005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAwJzE4LjAiTiA4OcKwMzcnMDAuMCJX!5e0!3m2!1sen!2smx!4v1234567890"
-                width="100%"
-                height="100%"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Ubicación Hospital Faro del Mayab"
-              ></iframe>
-            </div>
-            <div class="st-height-b0 st-height-lg-b30"></div>
-          </div>
-        </div>
-      </section>
-
-      <div class="st-height-b120 st-height-lg-b80"></div>
-
-      <!-- Appointment Section -->
-      <AppointmentSection {lang} />
-
-      <div class="st-height-b120 st-height-lg-b80"></div>
+      <ContactContent {lang} />
     </main>
 
     <Footer {lang} />
   </div>
 </MainLayout>
-
-<style>
-  .st-iconbox {
-    display: flex;
-    gap: 20px;
-  }
-
-  .st-iconbox-icon {
-    flex-shrink: 0;
-    color: #fa6b47;
-  }
-
-  .st-iconbox-title {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 600;
-  }
-
-  .st-iconbox-text {
-    line-height: 1.8;
-    color: #666;
-  }
-</style>

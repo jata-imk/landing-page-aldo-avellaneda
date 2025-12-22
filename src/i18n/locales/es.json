@@ -33,7 +33,15 @@
   },
   "sections": {
     "hero": {
-      "words": ["Cirugía de Columna", "Hernia Discal Lumbar", "Hernia Discal Cervical", "Gonartrosis de Rodilla", "Fracturas", "Esguince de Tobillo", "Meniscos"],
+      "words": [
+        "Cirugía de Columna",
+        "Hernia Discal Lumbar",
+        "Hernia Discal Cervical",
+        "Gonartrosis de Rodilla",
+        "Fracturas",
+        "Esguince de Tobillo",
+        "Meniscos"
+      ],
       "titlePart1": "Cirujano especialista en",
       "titlePart2": "en la península de Yucatán.",
       "subtitle": "Cuidado experto de la columna vertebral con innovación y precisión.",
@@ -78,6 +86,16 @@
     "testimonials": {
       "title": "Opiniones de Nuestros Pacientes",
       "subtitle": "Reseñas reales de pacientes en Google Maps que han confiado en la experiencia del Dr. Aldo Avellaneda."
+    },
+    "googleReviews": {
+      "title": "Lo que dicen nuestros pacientes",
+      "subtitle": "Opiniones reales de Google Maps de pacientes que han confiado en la experiencia del Dr. Aldo Avellaneda.",
+      "topRated": "Calificación del Dr. Aldo Avellaneda en Google Maps",
+      "writeReview": "Escribir una reseña",
+      "summaryText": "Nuestros pacientes elogian la experiencia profesional y sin problemas que ofrece nuestra clínica. Destacan la eficiente comunicación, los procedimientos cuidadosos y los resultados generales efectivos.",
+      "readMore": "Ver más",
+      "readLess": "Ver menos",
+      "viewAllButton": "Ver todas las opiniones en Google Maps"
     },
     "whyChoose": {
       "title": "¿Por qué elegir al Dr. Avellaneda?",
@@ -157,5 +175,142 @@
       "phoneInternationalLabel": "Internacional:"
     },
     "copyright": "© 2025 Dr. Aldo Avellaneda. Todos los derechos reservados."
+  },
+  "pages": {
+    "contact": {
+      "title": "Contacto - Dr. Aldo Avellaneda",
+      "description": "Contáctenos para agendar una cita o solicitar más información sobre nuestros servicios de cirugía de columna vertebral.",
+      "hero": {
+        "title": "Contacto",
+        "subtitle": "Estamos aquí para ayudarle"
+      },
+      "sectionTitle": "Cómo comunicarse con nosotros",
+      "cards": {
+        "address": {
+          "title": "Dirección de la clínica:",
+          "address": "Hospital Faro del Mayab, Calle 24 S/N-Consultorio 607, Temozón Norte, Santa Gertrudis Copó, 97300 Mérida, Yuc., México"
+        },
+        "phone": {
+          "title": "Teléfono:",
+          "national": "+52 999 386 8869",
+          "internationalLabel": "Int. Patients:",
+          "international": "+1 855-374-6300"
+        },
+        "virtualConsultations": {
+          "title": "consultas virtuales",
+          "description": "Para pacientes internacionales, ofrecemos <strong>consultas virtuales</strong> para analizar su caso antes de programar una cirugía en México. Nuestro equipo puede guiarlo a través del proceso, desde la evaluación hasta la recuperación."
+        },
+        "hours": {
+          "title": "Horario de Atención",
+          "mondayToFriday": "Lunes a Viernes:",
+          "mondayToFridayHours": "9:00 AM - 6:00 PM",
+          "saturday": "Sábados:",
+          "saturdayHours": "9:00 AM - 2:00 PM",
+          "sunday": "Domingos:",
+          "sundayHours": "Cerrado",
+          "note": "*Citas por appointment únicamente"
+        },
+        "whatsapp": {
+          "title": "¡Contacta por WhatsApp!",
+          "description": "La forma <strong>más fácil y rápida</strong> de comunicarse con nosotros. Envíanos un mensaje y te responderemos en minutos. ¡Es simple, directo y sin complicaciones!",
+          "buttonText": "Enviar mensaje por WhatsApp"
+        }
+      }
+    },
+    "aboutDrAldo": {
+      "title": "Acerca del Dr. Aldo Avellaneda - Cirujano de Columna Vertebral",
+      "description": "Conozca al Dr. Aldo Avellaneda, cirujano de columna vertebral altamente calificado especializado en procedimientos complejos y técnicas mínimamente invasivas.",
+      "hero": {
+        "title": "Dr. Aldo Avellaneda",
+        "subtitle": "Cirujano de Columna Vertebral"
+      },
+      "mainContent": {
+        "title": "Especialista en Cirugía de Columna Vertebral",
+        "paragraph1": "El Dr. Aldo Avellaneda es un cirujano de columna vertebral altamente calificado que se especializa en procedimientos espinales complejos y técnicas mínimamente invasivas.",
+        "paragraph2": "Con una amplia formación y años de experiencia, se ha consolidado como experto de confianza en el tratamiento de afecciones espinales graves, incluidos los casos que antes se consideraban inoperables.",
+        "button": "Agendar una Cita"
+      },
+      "specialties": {
+        "title": "Especialidades",
+        "subtitle": "Servicios especializados en cirugía de columna vertebral con técnicas de vanguardia",
+        "items": [
+          {
+            "title": "Cirugía Mínimamente Invasiva",
+            "description": "Técnicas avanzadas de columna vertebral que reducen el tiempo de recuperación y minimizan el trauma quirúrgico."
+          },
+          {
+            "title": "Hernias Discales Complejas",
+            "description": "Tratamiento especializado de hernias discales complejas con enfoque personalizado para cada paciente."
+          },
+          {
+            "title": "Escoliosis y Deformidades",
+            "description": "Corrección quirúrgica de escoliosis y otras deformidades espinales con tecnología de última generación."
+          },
+          {
+            "title": "Fusión Espinal",
+            "description": "Procedimientos avanzados de fusión espinal para estabilizar y aliviar el dolor en condiciones degenerativas."
+          },
+          {
+            "title": "Estenosis Espinal",
+            "description": "Tratamiento efectivo de la estenosis espinal para aliviar la compresión nerviosa y mejorar la movilidad."
+          },
+          {
+            "title": "Tumores Espinales",
+            "description": "Cirugía especializada para tumores espinales con técnicas precisas y cuidado integral del paciente."
+          }
+        ]
+      },
+      "timeline": {
+        "mainTitle": "La experiencia del Dr. Aldo en cirugía de columna vertebral:",
+        "mainSubtitle": "Educación e innovaciones",
+        "education": {
+          "title": "Educación y formación especializada",
+          "description": "La educación y la formación especializada del Dr. Aldo lo han posicionado como <strong>líder en cirugía de columna vertebral, particularmente en procedimientos complejos y mínimamente invasivos</strong>. Su formación académica y profesional incluye:",
+          "items": [
+            "<strong>Licenciada en Medicina y Cirugía</strong> de la Universidad Nacional Autónoma de México (UNAM).",
+            "<strong>Diplomas en Medicina y Ciencias de la Complejidad y Medicina de Emergencias</strong> de la Universidad Nacional Autónoma de México (UNAM).",
+            "<strong>Especialización en Ortopedia</strong> de la Universidad Nacional Autónoma de México (UNAM).",
+            "<strong>Entrenamiento avanzado en cirugía de columna vertebral mínimamente invasiva</strong> — Múltiples programas internacionales enfocados en técnicas endoscópicas y asistidas por robot."
+          ]
+        },
+        "experience": {
+          "title": "Experiencia profesional y aspectos destacados de la carrera",
+          "description": "El Dr. Aldo combina <strong>experiencia quirúrgica con contribuciones académicas</strong>, capacitando regularmente a otros cirujanos y contribuyendo al avance de la cirugía de columna vertebral. Su carrera incluye:",
+          "items": [
+            "<strong>Profesor del Colegio de Ortopedia Yucatán,</strong> dirigiendo sesiones especializadas sobre escoliosis de inicio temprano (2019).",
+            "<strong>Ponente en el Congreso Nacional de Cirugía de Columna Vertebral en México (2017),</strong> presentación sobre técnicas quirúrgicas avanzadas.",
+            "<strong>Miembro del cuerpo docente de la Universidad Nacional Autónoma de México (UNAM) (2012),</strong> impartiendo cursos de ortopedia y aparato respiratorio.",
+            "<strong>Se realizan más de 300 a 400 cirugías de columna al año,</strong> lo que lo convierte en uno de los especialistas en columna vertebral con más experiencia de la región."
+          ]
+        },
+        "certifications": {
+          "title": "Certificaciones, reconocimientos y membresías",
+          "description": "El Dr. Aldo sostiene <strong>prestigiosas certificaciones y membresías</strong> que subrayan su experiencia y dedicación a la atención de los pacientes:",
+          "items": [
+            "<strong>Certificación de la junta en cirugía ortopédica —</strong> Certificado por el Consejo Mexicano de Traumatología y Ortopedia (2017-2022).",
+            "<strong>Miembro activo de las organizaciones internacionales de cirugía de columna,</strong> interactuar regularmente con expertos mundiales.",
+            "<strong>Interactuar regularmente con expertos de todo el mundo</strong> centrado en el avance de la cirugía de columna mínimamente invasiva."
+          ]
+        },
+        "continuousLearning": {
+          "title": "Compromiso con el aprendizaje continuo y la innovación médica",
+          "description": "El Dr. Aldo participa activamente en <strong>educación continua, investigación y colaboración internacional</strong> para perfeccionar las técnicas de cirugía de columna. Su desarrollo profesional incluye:",
+          "items": [
+            "<strong>Simposio sobre tumores y deformidades de la columna vertebral —</strong> São Paulo, Brasil (2018).",
+            "<strong>Curso práctico avanzado sobre cirugía de columna cervical —</strong> Río de Janeiro, Brasil (2018).",
+            "<strong>Laboratorio de habilidades clínicas para cirugía lumbar mínimamente invasiva —</strong> (2018).",
+            "<strong>Múltiples cursos y certificaciones de AOSpine Latin America,</strong> centrándose en traumatismos, afecciones degenerativas y técnicas avanzadas mínimamente invasivas (2017).",
+            "<strong>Investigación sobre el equilibrio sagital en adultos y la artroplastia de disco cervical</strong> con AO North America (2017)."
+          ]
+        }
+      },
+      "contactInfo": {
+        "title": "Información de contacto y consulta",
+        "paragraph1": "Si está pensando en operarse la columna vertebral y quiere consultar con <strong>uno de los principales expertos en la materia</strong>, el Dr. Aldo Avellaneda y su equipo están listos para ayudar.",
+        "paragraph2": "El Dr. Aldo se compromete a proporcionar <strong>cuidado de la columna vertebral personalizado, innovador y eficaz</strong> para pacientes locales e internacionales. Ya sea que esté buscando aliviar el dolor crónico, buscar una segunda opinión o explorar opciones quirúrgicas mínimamente invasivas, su experiencia puede guiarlo hacia <strong>el mejor resultado posible</strong>.",
+        "button": "Ver contacto",
+        "imageAlt": "Dr. Aldo Avellaneda con su equipo"
+      }
+    }
   }
 }
