@@ -16,7 +16,9 @@ const { lang = "es" } = Astro.props;
   <div class="container" style="position: relative; z-index: 2;">
     <div class="st-page-heading-in text-center">
       <h1 class="hero-title-gradient">{t("pages.contact.hero.title", lang)}</h1>
-      <div class="hero-subtitle-gradient">{t("pages.contact.hero.subtitle", lang)}</div>
+      <div class="hero-subtitle-gradient">
+        {t("pages.contact.hero.subtitle", lang)}
+      </div>
     </div>
   </div>
 </section>
@@ -29,34 +31,59 @@ const { lang = "es" } = Astro.props;
 <!-- Contact Information -->
 <section class="container">
   <div class="text-center" style="margin-bottom: 60px;">
-    <h2 class="section-title-gradient">{t("pages.contact.sectionTitle", lang)}</h2>
+    <h2 class="section-title-gradient">
+      {t("pages.contact.sectionTitle", lang)}
+    </h2>
   </div>
 
   <div class="row g-4">
-    <!-- Dirección Card -->
-    <div class="col-lg-4 col-md-6">
-      <div class="contact-card">
-        <h3 class="contact-card-title">{t("pages.contact.cards.address.title", lang)}</h3>
-        <div class="contact-card-text">
-          {t("pages.contact.cards.address.address", lang)}
-        </div>
+    <!-- Ubicaciones Section Title -->
+    <div class="col-12">
+      <div class="text-center" style="margin-bottom: 40px;">
+        <h3 class="location-section-title">
+          {t("pages.contact.cards.addresses.title", lang)}
+        </h3>
+        <p class="location-section-subtitle">
+          {t("pages.contact.cards.addresses.subtitle", lang)}
+        </p>
       </div>
     </div>
+
+    <!-- Location Cards -->
+    {
+      (t("footer.contacts.locations", lang) as any[]).map((location: any) => (
+        <div class="col-lg-4 col-md-6">
+          <div
+            class={`contact-card location-card ${location.isPrimary ? "primary-location" : ""}`}
+          >
+            {location.isPrimary && (
+              <div class="location-badge">
+                {t("pages.contact.cards.addresses.primaryBadge", lang)}
+              </div>
+            )}
+            <h4 class="location-name">{location.fullName}</h4>
+            <p class="location-address">{location.address}</p>
+            <div class="location-city">
+              <i
+                class="fas fa-map-marker-alt"
+                style="color: #0cb8b6; margin-right: 5px;"
+              />
+              {location.city}
+            </div>
+          </div>
+        </div>
+      ))
+    }
 
     <!-- Teléfono Card -->
     <div class="col-lg-4 col-md-6">
       <div class="contact-card">
-        <h3 class="contact-card-title">{t("pages.contact.cards.phone.title", lang)}</h3>
+        <h3 class="contact-card-title">
+          {t("pages.contact.cards.phone.title", lang)}
+        </h3>
         <div class="contact-card-text">
           <a href="tel:+529993868869" class="contact-link"
             >{t("pages.contact.cards.phone.national", lang)}</a
-          >
-          <br /><br />
-          <span style="color: #0cb8b6;"
-            >{t("pages.contact.cards.phone.internationalLabel", lang)} <a
-              href="tel:+18553746300"
-              class="contact-link">{t("pages.contact.cards.phone.international", lang)}</a
-            ></span
           >
         </div>
       </div>
@@ -65,9 +92,16 @@ const { lang = "es" } = Astro.props;
     <!-- Consultas Virtuales Card -->
     <div class="col-lg-4 col-md-6">
       <div class="contact-card">
-        <h3 class="contact-card-title">{t("pages.contact.cards.virtualConsultations.title", lang)}</h3>
+        <h3 class="contact-card-title">
+          {t("pages.contact.cards.virtualConsultations.title", lang)}
+        </h3>
         <div class="contact-card-text">
-          <Fragment set:html={t("pages.contact.cards.virtualConsultations.description", lang)} />
+          <Fragment
+            set:html={t(
+              "pages.contact.cards.virtualConsultations.description",
+              lang
+            )}
+          />
         </div>
       </div>
     </div>
@@ -79,13 +113,24 @@ const { lang = "es" } = Astro.props;
   <div class="row">
     <div class="col-12">
       <div class="contact-card hours-card">
-        <h3 class="contact-card-title">{t("pages.contact.cards.hours.title", lang)}</h3>
+        <h3 class="contact-card-title">
+          {t("pages.contact.cards.hours.title", lang)}
+        </h3>
         <div class="contact-card-text">
-          <strong>{t("pages.contact.cards.hours.mondayToFriday", lang)}</strong> {t("pages.contact.cards.hours.mondayToFridayHours", lang)}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<strong
+          <strong>{t("pages.contact.cards.hours.mondayToFriday", lang)}</strong>
+          {
+            t("pages.contact.cards.hours.mondayToFridayHours", lang)
+          }&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<strong
             >{t("pages.contact.cards.hours.saturday", lang)}</strong
-          > {t("pages.contact.cards.hours.saturdayHours", lang)}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<strong
+          >
+          {
+            t("pages.contact.cards.hours.saturdayHours", lang)
+          }&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<strong
             >{t("pages.contact.cards.hours.sunday", lang)}</strong
-          > {t("pages.contact.cards.hours.sundayHours", lang)}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<em
+          >
+          {
+            t("pages.contact.cards.hours.sundayHours", lang)
+          }&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<em
             style="font-size: 14px; color: #666;"
             >{t("pages.contact.cards.hours.note", lang)}</em
           >
@@ -100,12 +145,19 @@ const { lang = "es" } = Astro.props;
   <div class="row">
     <div class="col-12">
       <div class="contact-card whatsapp-card">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px;">
-          <i class="fab fa-whatsapp" style="font-size: 3rem; color: #25D366;"></i>
-          <h3 class="contact-card-title" style="margin-bottom: 0;">{t("pages.contact.cards.whatsapp.title", lang)}</h3>
+        <div
+          style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px;"
+        >
+          <i class="fab fa-whatsapp" style="font-size: 3rem; color: #25D366;"
+          ></i>
+          <h3 class="contact-card-title" style="margin-bottom: 0;">
+            {t("pages.contact.cards.whatsapp.title", lang)}
+          </h3>
         </div>
         <div class="contact-card-text" style="margin-bottom: 25px;">
-          <Fragment set:html={t("pages.contact.cards.whatsapp.description", lang)} />
+          <Fragment
+            set:html={t("pages.contact.cards.whatsapp.description", lang)}
+          />
         </div>
         <div style="text-align: center;">
           <a
@@ -114,7 +166,9 @@ const { lang = "es" } = Astro.props;
             rel="noopener noreferrer"
             class="whatsapp-btn"
           >
-            <i class="fab fa-whatsapp" style="margin-right: 10px; font-size: 1.3rem;"></i>
+            <i
+              class="fab fa-whatsapp"
+              style="margin-right: 10px; font-size: 1.3rem;"></i>
             {t("pages.contact.cards.whatsapp.buttonText", lang)}
           </a>
         </div>
@@ -273,7 +327,7 @@ const { lang = "es" } = Astro.props;
 
   .whatsapp-card {
     background: linear-gradient(135deg, #e8f8f0 0%, #ffffff 100%);
-    border: 2px solid #25D366;
+    border: 2px solid #25d366;
   }
 
   .whatsapp-card:hover {
@@ -286,7 +340,7 @@ const { lang = "es" } = Astro.props;
     align-items: center;
     justify-content: center;
     padding: 15px 35px;
-    background: linear-gradient(135deg, #25D366 0%, #1da851 100%);
+    background: linear-gradient(135deg, #25d366 0%, #1da851 100%);
     color: white;
     font-weight: 700;
     font-size: 1.1rem;
@@ -301,6 +355,82 @@ const { lang = "es" } = Astro.props;
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
     color: white;
+  }
+
+  /* Location Section Styles */
+  .location-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #0cb8b6 0%, #6c757d 50%, #0cb8b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: gradientShift 4s ease infinite;
+    margin-bottom: 10px;
+  }
+
+  .location-section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 400;
+  }
+
+  /* Location Cards */
+  .location-card {
+    position: relative;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-left: 4px solid #0cb8b6;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .location-card.primary-location {
+    border-left-width: 6px;
+    background: linear-gradient(135deg, #e8f8f0 0%, #ffffff 100%);
+    box-shadow: 0 4px 20px rgba(12, 184, 182, 0.15);
+  }
+
+  .location-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: linear-gradient(135deg, #0cb8b6 0%, #0a9d9b 100%);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(12, 184, 182, 0.3);
+  }
+
+  .location-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0cb8b6;
+    margin-bottom: 18px;
+    line-height: 1.3;
+    min-height: 50px;
+  }
+
+  .location-address {
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    flex-grow: 1;
+  }
+
+  .location-city {
+    color: #0cb8b6;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
   }
 
   /* Responsive adjustments */
@@ -339,6 +469,24 @@ const { lang = "es" } = Astro.props;
       font-size: 1rem;
       padding: 12px 25px;
     }
+
+    .location-section-title {
+      font-size: 1.75rem;
+    }
+
+    .location-section-subtitle {
+      font-size: 1rem;
+    }
+
+    .location-card {
+      margin-bottom: 20px;
+      min-height: auto;
+    }
+
+    .location-name {
+      font-size: 1.15rem;
+      min-height: auto;
+    }
   }
 
   @media (max-width: 576px) {
@@ -366,6 +514,24 @@ const { lang = "es" } = Astro.props;
       font-size: 0.95rem;
       padding: 12px 20px;
       width: 100%;
+    }
+
+    .location-section-title {
+      font-size: 1.5rem;
+    }
+
+    .location-badge {
+      font-size: 10px;
+      padding: 5px 12px;
+      right: 15px;
+    }
+
+    .location-name {
+      font-size: 1.1rem;
+    }
+
+    .location-address {
+      font-size: 0.9rem;
     }
   }
 </style>

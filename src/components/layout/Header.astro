@@ -18,8 +18,7 @@ const { lang = "es", isHomepage = false } = Astro.props;
           <li>
             <i
               class="fab fa-whatsapp"
-              style="color: #25D366; font-size: 1.2rem; margin-right: 5px;"
-            ></i>
+              style="color: #25D366; font-size: 1.2rem; margin-right: 5px;"></i>
             <a
               href={`https://wa.me/${t("contact.whatsapp.yucatan", lang)}?text=${encodeURIComponent(t("contact.whatsapp.defaultMessage", lang))}`}
               target="_blank"
@@ -31,6 +30,7 @@ const { lang = "es", isHomepage = false } = Astro.props;
           </li>
         </ul>
         <div
+          class="st-top-header-center"
           style={{
             position: "absolute",
             left: "50%",
@@ -52,10 +52,11 @@ const { lang = "es", isHomepage = false } = Astro.props;
           <button
             id="lang-toggle"
             style={{
-              padding: "8px 12px",
+              padding: "4px 12px",
               backgroundColor: "#fa6b47",
               color: "white",
               border: "none",
+              fontSize: "12px",
               borderRadius: "4px",
               fontWeight: "600",
               cursor: "pointer",
@@ -83,57 +84,70 @@ const { lang = "es", isHomepage = false } = Astro.props;
           </a>
         </div>
         <div class="st-main-header-right">
+          <button class="st-munu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+          </button>
           <div class="st-nav">
             <ul class="st-nav-list">
-              <li class={isHomepage ? "menu-item-has-children" : ""} id="home-menu-item">
+              <li
+                class={isHomepage ? "menu-item-has-children" : ""}
+                id="home-menu-item"
+              >
                 <a href={lang === "es" ? "/" : "/en"}>
                   {t("header.nav.home", lang)}
                 </a>
-                {isHomepage && (
-                  <ul id="home-submenu">
-                    <li>
-                      <a href="#about" class="st-smooth-move" data-target="about">
-                        {t("header.homeSubmenu.aboutSection", lang)}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#gallery"
-                        class="st-smooth-move"
-                        data-target="gallery"
-                      >
-                        {t("header.homeSubmenu.gallery", lang)}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#testimonials"
-                        class="st-smooth-move"
-                        data-target="testimonials"
-                      >
-                        {t("header.homeSubmenu.testimonials", lang)}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#why-choose"
-                        class="st-smooth-move"
-                        data-target="why-choose"
-                      >
-                        {t("header.homeSubmenu.whyChoose", lang)}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#appointment"
-                        class="st-smooth-move"
-                        data-target="appointment"
-                      >
-                        {t("header.homeSubmenu.appointment", lang)}
-                      </a>
-                    </li>
-                  </ul>
-                )}
+                {isHomepage && <span class="st-munu-dropdown-toggle"></span>}
+                {
+                  isHomepage && (
+                    <ul id="home-submenu">
+                      <li>
+                        <a
+                          href="#about"
+                          class="st-smooth-move"
+                          data-target="about"
+                        >
+                          {t("header.homeSubmenu.aboutSection", lang)}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#gallery"
+                          class="st-smooth-move"
+                          data-target="gallery"
+                        >
+                          {t("header.homeSubmenu.gallery", lang)}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#testimonials"
+                          class="st-smooth-move"
+                          data-target="testimonials"
+                        >
+                          {t("header.homeSubmenu.testimonials", lang)}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#why-choose"
+                          class="st-smooth-move"
+                          data-target="why-choose"
+                        >
+                          {t("header.homeSubmenu.whyChoose", lang)}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#appointment"
+                          class="st-smooth-move"
+                          data-target="appointment"
+                        >
+                          {t("header.homeSubmenu.appointment", lang)}
+                        </a>
+                      </li>
+                    </ul>
+                  )
+                }
               </li>
               <li>
                 <a
@@ -144,7 +158,8 @@ const { lang = "es", isHomepage = false } = Astro.props;
                   {t("header.nav.about", lang)}
                 </a>
               </li>
-              {/* Temporalmente comentado hasta que la página esté lista
+              {
+                /* Temporalmente comentado hasta que la página esté lista
               <li>
                 <a
                   href={lang === "es"
@@ -154,7 +169,8 @@ const { lang = "es", isHomepage = false } = Astro.props;
                   {t("header.nav.spineSurgery", lang)}
                 </a>
               </li>
-              */}
+              */
+              }
               <li>
                 <a href={lang === "es" ? "/contacto" : "/en/contact"}>
                   {t("header.nav.contact", lang)}
@@ -248,6 +264,79 @@ const { lang = "es", isHomepage = false } = Astro.props;
       window.location.href = newPath;
     });
   }
+
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const navList = document.querySelector(".st-nav .st-nav-list");
+
+  if (mobileMenuToggle && navList) {
+    mobileMenuToggle.addEventListener("click", () => {
+      // Toggle clase activa en el botón (cambia icono a X)
+      mobileMenuToggle.classList.toggle("st-toggle-active");
+
+      // Toggle display del menú
+      if (navList.style.display === "block") {
+        navList.style.display = "none";
+      } else {
+        navList.style.display = "block";
+      }
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    const navLinks = navList.querySelectorAll("a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 991) {
+          navList.style.display = "none";
+          mobileMenuToggle.classList.remove("st-toggle-active");
+        }
+      });
+    });
+  }
+
+  // Mobile submenu dropdown toggle
+  const dropdownToggles = document.querySelectorAll(".st-munu-dropdown-toggle");
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Toggle clase activa
+      toggle.classList.toggle("active");
+
+      // Toggle display del submenu
+      const submenu = toggle.parentElement.querySelector("ul");
+      if (submenu) {
+        if (submenu.style.display === "block") {
+          submenu.style.display = "none";
+        } else {
+          submenu.style.display = "block";
+        }
+      }
+    });
+  });
+
+  // Cerrar menú al redimensionar ventana (si se pasa a desktop)
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.innerWidth > 991) {
+        // En desktop, resetear estilos inline
+        if (navList) {
+          navList.style.display = "";
+        }
+        if (mobileMenuToggle) {
+          mobileMenuToggle.classList.remove("st-toggle-active");
+        }
+        // Resetear submenús
+        const submenus = document.querySelectorAll(".st-nav-list ul");
+        submenus.forEach((submenu) => {
+          submenu.style.display = "";
+        });
+      }
+    }, 250);
+  });
 </script>
 
 <style is:global>

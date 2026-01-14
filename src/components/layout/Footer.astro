@@ -64,16 +64,19 @@ const { lang = "es" } = Astro.props;
               {t("footer.contacts.title", lang)}
             </h2>
             <ul class="st-footer-contact-list st-mp0">
+              {
+                (t("footer.contacts.locations", lang) as any[]).map(
+                  (location: any) => (
+                    <li class="st-footer-location">
+                      <span class="st-location-name">{location.name}</span>
+                      <span class="st-location-address">
+                        {location.address}
+                      </span>
+                    </li>
+                  )
+                )
+              }
               <li>
-                <span class="st-footer-contact-title"
-                  >{t("footer.contacts.addressLabel", lang)}</span
-                >
-                {t("footer.contacts.address", lang)}
-              </li>
-              <li>
-                <span class="st-footer-contact-title"
-                  >{t("footer.contacts.phoneLabel", lang)}</span
-                >
                 <span class="st-footer-contact-title"
                   >{t("footer.contacts.phoneNationalLabel", lang)}</span
                 >
@@ -82,16 +85,6 @@ const { lang = "es" } = Astro.props;
                   style="color: inherit;"
                 >
                   {t("footer.contacts.phoneNational", lang)}
-                </a>
-                <br />
-                <span class="st-footer-contact-title"
-                  >{t("footer.contacts.phoneInternationalLabel", lang)}</span
-                >
-                <a
-                  href={`tel:${t("footer.contacts.phoneInternational", lang)}`}
-                  style="color: inherit;"
-                >
-                  {t("footer.contacts.phoneInternational", lang)}
                 </a>
               </li>
             </ul>
@@ -121,7 +114,8 @@ const { lang = "es" } = Astro.props;
                   }
                 </a>
               </li>
-              {/* Temporalmente comentado hasta que la página esté lista
+              {
+                /* Temporalmente comentado hasta que la página esté lista
               <li>
                 <a
                   href={lang === "es"
@@ -133,7 +127,8 @@ const { lang = "es" } = Astro.props;
                   }
                 </a>
               </li>
-              */}
+              */
+              }
               <li>
                 <a href={lang === "es" ? "/contacto" : "/en/contact"}>
                   <i class="fas fa-chevron-right"></i>{
@@ -189,5 +184,46 @@ const { lang = "es" } = Astro.props;
 <style>
   footer.st-dynamic-bg {
     position: relative;
+  }
+
+  .st-footer-location {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .st-footer-location:last-of-type {
+    border-bottom: none;
+    margin-bottom: 25px;
+  }
+
+  .st-location-name,
+  .st-footer-contact-title {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .st-location-address {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 991px) {
+    .st-footer-location {
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+    }
+
+    .st-location-name {
+      font-size: 13px;
+    }
+
+    .st-location-address {
+      font-size: 12px;
+    }
   }
 </style>

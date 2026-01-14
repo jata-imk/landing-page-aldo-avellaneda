@@ -33,7 +33,15 @@
   },
   "sections": {
     "hero": {
-      "words": ["Spine Surgery", "Lumbar Disc Herniation", "Cervical Disc Herniation", "Knee Osteoarthritis", "Fractures", "Ankle Sprain", "Meniscus"],
+      "words": [
+        "Spine Surgery",
+        "Lumbar Disc Herniation",
+        "Cervical Disc Herniation",
+        "Knee Osteoarthritis",
+        "Fractures",
+        "Ankle Sprain",
+        "Meniscus"
+      ],
       "titlePart1": "Surgeon specialized in",
       "titlePart2": "in the Yucatan Peninsula.",
       "subtitle": "With extensive training and years of experience, he has established himself as a trusted expert in the treatment of severe spinal conditions, including cases that were previously considered inoperable.",
@@ -64,7 +72,7 @@
       }
     },
     "appointment": {
-      "title": "Get a Free Phone Call with Dr. Avellaneda's Nurse Coordinator"
+      "title": "Get a free phone call with Dr. Avellaneda's surgical consultant"
     },
     "gallery": {
       "title": "View our Gallery",
@@ -104,6 +112,70 @@
         {
           "title": "Comprehensive, Personalized Care:",
           "description": "We offer attentive preoperative counseling, meticulous surgical execution, and dedicated postoperative follow-up to ensure long-term success and well-being."
+        }
+      ]
+    },
+    "map": {
+      "title": "Our Locations",
+      "selectLocation": "Select a location:",
+      "getDirections": "Get Directions",
+      "locations": [
+        {
+          "id": "faro-mayab",
+          "name": "Hospital Faro del Mayab",
+          "city": "Mérida, Yucatán",
+          "isPrimary": true,
+          "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4120995912936!2d-89.5850012!3d21.0161907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5676f669555555%3A0xd6a48100ff0e2fe7!2sOrtopedista%2C%20Traumat%C3%B3log%C3%ADa%20M%C3%A9rida%2C%20Canc%C3%BAn%20%7C%20Dr.%20Aldo%20Avellaneda%20%7C%20Especialista%20en%20Columna%20%7C%20Cirug%C3%ADa%20M%C3%ADnima%20Invasi%C3%B3n!5e0!3m2!1ses-419!2smx!4v1762925934314!5m2!1ses-419!2smx",
+          "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=21.0161907,-89.5850012",
+          "coordinates": {
+            "latitude": 21.0161907,
+            "longitude": -89.5850012
+          },
+          "address": {
+            "streetAddress": "Calle 24 S/N-Consultorio 607, Temozón Norte, Santa Gertrudis Copó",
+            "postalCode": "97300",
+            "city": "Mérida",
+            "state": "Yucatán",
+            "country": "MX"
+          }
+        },
+        {
+          "id": "star-medica",
+          "name": "Star Medica Mérida",
+          "city": "Mérida, Yucatán",
+          "isPrimary": false,
+          "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4114755481564!2d-89.58759132502442!3d21.016215688209858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f567720d53dd8cd%3A0xc198ba75b83b93b2!2sHospital%20Star%20M%C3%A9dica%20M%C3%A9rida!5e0!3m2!1ses-419!2smx!4v1768112371902!5m2!1ses-419!2smx",
+          "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=21.016215688209858,-89.58759132502442",
+          "coordinates": {
+            "latitude": 21.016215688209858,
+            "longitude": -89.58759132502442
+          },
+          "address": {
+            "streetAddress": "Calle 26 No. 199 por 15 y 7",
+            "postalCode": "97133",
+            "city": "Mérida",
+            "state": "Yucatán",
+            "country": "MX"
+          }
+        },
+        {
+          "id": "san-angel-satelite",
+          "name": "Hospital San Ángel Inn Satélite",
+          "city": "Naucalpan, Estado de México",
+          "isPrimary": false,
+          "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.819804227979!2d-99.23835022506032!3d19.506386938320805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d203005d635ba9%3A0x74b9c16575ceeae!2sHospital%20San%20%C3%81ngel%20Inn%20Sat%C3%A9lite!5e0!3m2!1ses-419!2smx!4v1768112407789!5m2!1ses-419!2smx",
+          "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=19.506386938320805,-99.23835022506032",
+          "coordinates": {
+            "latitude": 19.506386938320805,
+            "longitude": -99.23835022506032
+          },
+          "address": {
+            "streetAddress": "Cto Centro Comercial 20, Cd. Satélite",
+            "postalCode": "53100",
+            "city": "Naucalpan de Juárez",
+            "state": "Estado de México",
+            "country": "MX"
+          }
         }
       ]
     }
@@ -158,15 +230,37 @@
     },
     "contacts": {
       "title": "Contact",
-      "addressLabel": "Address:",
-      "address": "Hospital Faro del Mayab, Calle 24 S/N-Consultorio 607, Temozón Norte, Santa Gertrudis Copó, 97300 Mérida, Yuc., México",
+      "locationsTitle": "Our Locations:",
+      "locations": [
+        {
+          "name": "Hospital Faro del Mayab",
+          "fullName": "Hospital Faro del Mayab Grupo Christus Muguerza",
+          "address": "Calle 24 S/N-Consultorio 607, Temozón Norte, Santa Gertrudis Copó, 97300 Mérida, Yuc., México",
+          "city": "Mérida, Yucatán",
+          "isPrimary": true
+        },
+        {
+          "name": "Star Medica Mérida",
+          "fullName": "Star Medica Mérida",
+          "address": "Calle 26 No. 199 por 15 y 7 C.P. 97133 Mérida, Yuc. México",
+          "city": "Mérida, Yucatán",
+          "isPrimary": false
+        },
+        {
+          "name": "Hospital San Ángel Inn Satélite",
+          "fullName": "Hospital San Ángel Inn Satélite",
+          "address": "Cto Centro Comercial 20, Cd. Satélite, 53100 Naucalpan de Juárez, Méx.",
+          "city": "Naucalpan, State of Mexico",
+          "isPrimary": false
+        }
+      ],
       "phoneLabel": "Phones:",
       "phoneNational": "+52 999 386 8869",
       "phoneNationalLabel": "National:",
       "phoneInternational": "+1 855-374-6300",
       "phoneInternationalLabel": "International:"
     },
-    "copyright": "© 2025 Dr. Aldo Avellaneda. All rights reserved."
+    "copyright": "© 2026 Dr. Aldo Avellaneda. All rights reserved."
   },
   "pages": {
     "contact": {
@@ -178,9 +272,10 @@
       },
       "sectionTitle": "How to get in touch with us",
       "cards": {
-        "address": {
-          "title": "Clinic Address:",
-          "address": "Hospital Faro del Mayab, Calle 24 S/N-Office 607, Temozón Norte, Santa Gertrudis Copó, 97300 Mérida, Yucatán, México"
+        "addresses": {
+          "title": "Our Locations",
+          "subtitle": "Offices in prestigious hospitals",
+          "primaryBadge": "Primary Office"
         },
         "phone": {
           "title": "Phone:",

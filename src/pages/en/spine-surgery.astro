@@ -1,24 +1,35 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import Header from '../../components/layout/Header.astro';
-import Footer from '../../components/layout/Footer.astro';
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
 
-const title = 'Spine Surgery - Dr. Aldo Avellaneda';
-const description = 'Advanced spine surgery procedures with minimally invasive techniques. Specialist in disc herniations, spinal stenosis, and deformities.';
-const lang = 'en';
+const title = "Spine Surgery - Dr. Aldo Avellaneda";
+const description =
+  "Advanced spine surgery procedures with minimally invasive techniques. Specialist in disc herniations, spinal stenosis, and deformities.";
+const lang = "en";
 ---
 
-<MainLayout {title} {description} {lang} ogImage="/gallery/67c3f8966d122b2f5dbeabda_3d-render-male-medical-figure-with-spine-highlighted-min.jpg">
+<MainLayout
+  {title}
+  {description}
+  {lang}
+  ogImage="/gallery/67c3f8966d122b2f5dbeabda_3d-render-male-medical-figure-with-spine-highlighted-min.jpg"
+>
   <div class="st-content">
     <Header {lang} />
 
     <main>
       <!-- Hero Section -->
-      <section class="st-page-heading st-dynamic-bg" style="background-image: url('/shape/contact-bg-shape.svg')">
+      <section
+        class="st-page-heading st-dynamic-bg"
+        style="background-image: url('/shape/contact-bg-shape.svg')"
+      >
         <div class="container">
           <div class="st-page-heading-in text-center">
             <h1 class="st-page-heading-title">Spine Surgery</h1>
-            <div class="st-page-heading-subtitle">Advanced and Minimally Invasive Techniques</div>
+            <div class="st-page-heading-subtitle">
+              Advanced and Minimally Invasive Techniques
+            </div>
           </div>
         </div>
       </section>
@@ -31,20 +42,35 @@ const lang = 'en';
             <div class="st-section-heading st-style1">
               <h2 class="st-section-heading-title">Spine Surgery Specialty</h2>
               <div class="st-seperator">
-                <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
-                <div class="st-seperator-center">
-                  <img src="/icons/4.png" alt="icon" />
+                <div
+                  class="st-seperator-left wow fadeInLeft"
+                  data-wow-duration="1s"
+                  data-wow-delay="0.2s"
+                >
                 </div>
-                <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+                <div class="st-seperator-center">
+                  <img src="/my-icons/4.png" alt="icon" />
+                </div>
+                <div
+                  class="st-seperator-right wow fadeInRight"
+                  data-wow-duration="1s"
+                  data-wow-delay="0.2s"
+                >
+                </div>
               </div>
             </div>
             <div class="st-height-b40 st-height-lg-b40"></div>
 
             <p>
-              Spine surgery is a complex specialty that requires technical precision, advanced experience, and deep knowledge of spinal anatomy. Dr. Aldo Avellaneda specializes in complex spinal procedures using the most advanced techniques available.
+              Spine surgery is a complex specialty that requires technical
+              precision, advanced experience, and deep knowledge of spinal
+              anatomy. Dr. Aldo Avellaneda specializes in complex spinal
+              procedures using the most advanced techniques available.
             </p>
             <p>
-              Our approach combines minimally invasive methods with traditional procedures when necessary, always prioritizing patient safety and the best possible outcomes.
+              Our approach combines minimally invasive methods with traditional
+              procedures when necessary, always prioritizing patient safety and
+              the best possible outcomes.
             </p>
           </div>
         </div>
@@ -60,61 +86,96 @@ const lang = 'en';
 
             <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
               <div class="st-iconbox-icon">
-                <img src="/icons/department-icon/cardiology.svg" alt="icon" style="width: 50px; height: 50px;" />
+                <img
+                  src="/my-icons/department-icon/cardiology.svg"
+                  alt="icon"
+                  style="width: 50px; height: 50px;"
+                />
               </div>
               <h4 class="st-iconbox-title">Minimally Invasive Surgery</h4>
               <div class="st-iconbox-text">
-                Advanced techniques that reduce tissue trauma, minimize postoperative pain, and allow for faster recovery. Includes microdiscectomy, foraminotomy, and spinal decompression.
+                Advanced techniques that reduce tissue trauma, minimize
+                postoperative pain, and allow for faster recovery. Includes
+                microdiscectomy, foraminotomy, and spinal decompression.
               </div>
             </div>
 
             <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
               <div class="st-iconbox-icon">
-                <img src="/icons/department-icon/cardiology.svg" alt="icon" style="width: 50px; height: 50px;" />
+                <img
+                  src="/my-icons/department-icon/cardiology.svg"
+                  alt="icon"
+                  style="width: 50px; height: 50px;"
+                />
               </div>
               <h4 class="st-iconbox-title">Spinal Fusion</h4>
               <div class="st-iconbox-text">
-                Vertebral arthrodesis procedures to stabilize the spine in cases of instability, severe degeneration, or deformities. Includes cervical, lumbar, and thoracolumbar fusion.
+                Vertebral arthrodesis procedures to stabilize the spine in cases
+                of instability, severe degeneration, or deformities. Includes
+                cervical, lumbar, and thoracolumbar fusion.
               </div>
             </div>
 
             <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
               <div class="st-iconbox-icon">
-                <img src="/icons/department-icon/cardiology.svg" alt="icon" style="width: 50px; height: 50px;" />
+                <img
+                  src="/my-icons/department-icon/cardiology.svg"
+                  alt="icon"
+                  style="width: 50px; height: 50px;"
+                />
               </div>
               <h4 class="st-iconbox-title">Disc Herniation Surgery</h4>
               <div class="st-iconbox-text">
-                Surgical treatment of cervical and lumbar disc herniations causing radiating pain, weakness, or neurological symptoms. Includes discectomy and artificial disc replacement.
+                Surgical treatment of cervical and lumbar disc herniations
+                causing radiating pain, weakness, or neurological symptoms.
+                Includes discectomy and artificial disc replacement.
               </div>
             </div>
 
             <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
               <div class="st-iconbox-icon">
-                <img src="/icons/department-icon/cardiology.svg" alt="icon" style="width: 50px; height: 50px;" />
+                <img
+                  src="/my-icons/department-icon/cardiology.svg"
+                  alt="icon"
+                  style="width: 50px; height: 50px;"
+                />
               </div>
               <h4 class="st-iconbox-title">Deformity Correction</h4>
               <div class="st-iconbox-text">
-                Surgery for scoliosis, kyphosis, and other spinal deformities. Use of modern instrumentation to correct and stabilize the spine.
+                Surgery for scoliosis, kyphosis, and other spinal deformities.
+                Use of modern instrumentation to correct and stabilize the
+                spine.
               </div>
             </div>
 
             <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
               <div class="st-iconbox-icon">
-                <img src="/icons/department-icon/cardiology.svg" alt="icon" style="width: 50px; height: 50px;" />
+                <img
+                  src="/my-icons/department-icon/cardiology.svg"
+                  alt="icon"
+                  style="width: 50px; height: 50px;"
+                />
               </div>
               <h4 class="st-iconbox-title">Spinal Stenosis Surgery</h4>
               <div class="st-iconbox-text">
-                Decompression of the spinal cord or compressed nerves due to narrowing of the spinal canal. Laminectomy, laminoplasty, and foraminotomy.
+                Decompression of the spinal cord or compressed nerves due to
+                narrowing of the spinal canal. Laminectomy, laminoplasty, and
+                foraminotomy.
               </div>
             </div>
 
             <div class="st-iconbox st-style1" style="margin-bottom: 30px;">
               <div class="st-iconbox-icon">
-                <img src="/icons/department-icon/cardiology.svg" alt="icon" style="width: 50px; height: 50px;" />
+                <img
+                  src="/my-icons/department-icon/cardiology.svg"
+                  alt="icon"
+                  style="width: 50px; height: 50px;"
+                />
               </div>
               <h4 class="st-iconbox-title">Spinal Tumor Surgery</h4>
               <div class="st-iconbox-text">
-                Resection of benign and malignant tumors of the spine and spinal cord, with focus on preserving neurological function.
+                Resection of benign and malignant tumors of the spine and spinal
+                cord, with focus on preserving neurological function.
               </div>
             </div>
           </div>
@@ -124,7 +185,10 @@ const lang = 'en';
       <div class="st-height-b80 st-height-lg-b60"></div>
 
       <!-- Conditions Treated -->
-      <section class="container" style="background-color: #f8f9fa; padding: 60px 0;">
+      <section
+        class="container"
+        style="background-color: #f8f9fa; padding: 60px 0;"
+      >
         <div class="row">
           <div class="col-lg-8 offset-lg-2">
             <h3 style="margin-bottom: 25px;">Conditions Treated</h3>
@@ -153,9 +217,14 @@ const lang = 'en';
           <div class="col-lg-8 offset-lg-2 text-center">
             <h3 style="margin-bottom: 25px;">Need a Consultation?</h3>
             <p style="margin-bottom: 30px;">
-              If you are experiencing back pain, neck pain, or neurological symptoms, schedule a consultation to evaluate your treatment options.
+              If you are experiencing back pain, neck pain, or neurological
+              symptoms, schedule a consultation to evaluate your treatment
+              options.
             </p>
-            <a href="/en/#appointment" class="st-btn st-style1 st-color1 st-size-medium">
+            <a
+              href="/en/#appointment"
+              class="st-btn st-style1 st-color1 st-size-medium"
+            >
               Book an Appointment
             </a>
           </div>

@@ -26,7 +26,7 @@ const { lang = "es" } = Astro.props;
         >
         </div>
         <div class="st-seperator-center">
-          <img src="/icons/4.png" alt="icon" />
+          <img src="/my-icons/4.png" alt="icon" />
         </div>
         <div
           class="st-seperator-right wow fadeInRight"
@@ -140,19 +140,6 @@ const { lang = "es" } = Astro.props;
                       style="color: inherit; text-decoration: none;"
                     >
                       {t("sections.about.call.national", lang)}
-                    </a>
-                  </div>
-                  <div style="display: flex; justify-content: space-between;">
-                    <strong
-                      >{
-                        t("sections.about.call.internationalLabel", lang)
-                      }:</strong
-                    >
-                    <a
-                      href={`tel:${t("sections.about.call.international", lang)}`}
-                      style="color: inherit; text-decoration: none;"
-                    >
-                      {t("sections.about.call.international", lang)}
                     </a>
                   </div>
                 </div>

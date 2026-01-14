@@ -1266,8 +1266,8 @@ hr {
   .st-main-header .container {
     max-width: 100%;
   }
-  .st-top-header {
-    display: none;
+  .st-top-header .st-top-header-in .st-top-header-center {
+    display: none !important;
   }
   .st-site-header.st-style1 {
     background-color: #fff;
@@ -1506,23 +1506,26 @@ hr {
   .st-munu-toggle {
     position: relative;
     display: inline-block;
-    width: 28px;
+    width: 40px;
     height: 27px;
     margin: 15px 0px 15px 0px;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
   }
   .st-munu-toggle span,
   .st-munu-toggle span:before,
   .st-munu-toggle span:after {
     width: 100%;
-    height: 2px;
+    height: 4px;
+    border-radius: 5px;
     background-color: #666;
     display: block;
   }
   .st-munu-toggle span {
     margin: 0 auto;
     position: relative;
-    top: 12px;
+    top: 0px;
     -webkit-transition-duration: 0s;
     transition-duration: 0s;
     -webkit-transition-delay: 0.2s;

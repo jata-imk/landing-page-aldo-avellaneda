@@ -1,55 +1,333 @@
 ---
+import { t } from "../../i18n/translations";
+
 interface Props {
   lang?: "es" | "en";
-  type?: "default" | "tall" | "short"; // default=500px, tall=600px, short=400px
+  type?: "default" | "tall" | "short";
+  showLocationSelector?: boolean;
 }
 
-const { lang = "es", type = "default" } = Astro.props;
-
-// Clase CSS según el tipo de altura
+const {
+  lang = "es",
+  type = "default",
+  showLocationSelector = true,
+} = Astro.props;
+const locations = t("sections.map.locations", lang) as any[];
+const primaryLocation = locations.find((loc) => loc.isPrimary) || locations[0];
 const typeClass =
   type === "tall" ? "st-type1" : type === "short" ? "st-type2" : "";
 ---
 
-<div class={`st-google-map ${typeClass}`}>
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4120995912936!2d-89.5850012!3d21.0161907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5676f669555555%3A0xd6a48100ff0e2fe7!2sOrtopedista%2C%20Traumat%C3%B3log%C3%ADa%20M%C3%A9rida%2C%20Canc%C3%BAn%20%7C%20Dr.%20Aldo%20Avellaneda%20%7C%20Especialista%20en%20Columna%20%7C%20Cirug%C3%ADa%20M%C3%ADnima%20Invasi%C3%B3n!5e0!3m2!1ses-419!2smx!4v1762925934314!5m2!1ses-419!2smx"
-    allowfullscreen
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    title={lang === "es"
-      ? "Ubicación del Dr. Aldo Avellaneda - Hospital Faro del Mayab, Mérida"
-      : "Location of Dr. Aldo Avellaneda - Hospital Faro del Mayab, Mérida"}
-  ></iframe>
+<!-- Encabezado opcional de la sección -->{
+  showLocationSelector && (
+    <div class="st-map-section-header">
+      <h3>{t("sections.map.title", lang)}</h3>
+      <p class="st-map-subtitle">{t("sections.map.selectLocation", lang)}</p>
+    </div>
+  )
+}
+
+<!-- Selector de ubicaciones (pestañas) -->
+{
+  showLocationSelector && (
+    <div class="st-location-selector">
+      {locations.map((location) => (
+        <button
+          class={`st-location-tab ${location.id === primaryLocation.id ? "st-active" : ""}`}
+          data-location-id={location.id}
+          data-active={location.id === primaryLocation.id}
+        >
+          <span class="st-location-tab-name">{location.name}</span>
+          <span class="st-location-tab-city">{location.city}</span>
+          {location.isPrimary && <span class="st-primary-badge">★</span>}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+<!-- Contenedores de mapas (uno por ubicación) -->
+<div class={`st-google-map-wrapper ${typeClass}`}>
+  {
+    locations.map((location) => (
+      <div
+        class="st-map-container"
+        data-location-id={location.id}
+        data-active={location.id === primaryLocation.id}
+        style={location.id === primaryLocation.id ? "" : "display: none;"}
+      >
+        <iframe
+          src={location.embedUrl}
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={`${t("sections.map.title", lang)} - ${location.name}`}
+        />
+
+        {/* Botón de "Cómo llegar" */}
+        <a
+          href={location.directionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="st-directions-btn"
+        >
+          <i class="fas fa-directions" />
+          {t("sections.map.getDirections", lang)}
+        </a>
+      </div>
+    ))
+  }
 </div>
 
+<!-- JSON-LD Schemas (uno por ubicación) -->
+{
+  locations.map((location) => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      name: `Dr. José Aldo Avellaneda - ${location.name}`,
+      image: "https://www.draldoavellaneda.com/hero-img.png",
+      description:
+        lang === "es"
+          ? "Cirujano especialista en columna vertebral"
+          : "Spine surgeon specialist",
+      "@id": `https://www.draldoavellaneda.com/#${location.id}`,
+      url: "https://www.draldoavellaneda.com",
+      telephone: "+52-999-386-8869",
+      priceRange: "$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: location.address.streetAddress,
+        addressLocality: location.address.city,
+        addressRegion: location.address.state,
+        postalCode: location.address.postalCode,
+        addressCountry: location.address.country,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: location.coordinates.latitude,
+        longitude: location.coordinates.longitude,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "10:00",
+          closes: "19:00",
+        },
+      ],
+      sameAs: [
+        "https://www.facebook.com/DrAldoAvellaneda/?locale=es_LA",
+        "https://www.instagram.com/dr.aldo.avellaneda/",
+      ],
+    };
+    return (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(schema)}
+        is:inline
+      />
+    );
+  })
+}
+
+<script>
+  // Lógica de cambio de pestañas
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".st-location-tab");
+    const mapContainers = document.querySelectorAll(".st-map-container");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const locationId = tab.getAttribute("data-location-id");
+
+        // Actualizar pestañas
+        tabs.forEach((t) => {
+          t.classList.remove("st-active");
+          t.setAttribute("data-active", "false");
+        });
+        tab.classList.add("st-active");
+        tab.setAttribute("data-active", "true");
+
+        // Actualizar contenedores de mapas
+        mapContainers.forEach((container) => {
+          const containerId = container.getAttribute("data-location-id");
+          if (containerId === locationId) {
+            (container as HTMLElement).style.display = "block";
+            container.setAttribute("data-active", "true");
+          } else {
+            (container as HTMLElement).style.display = "none";
+            container.setAttribute("data-active", "false");
+          }
+        });
+      });
+    });
+  });
+</script>
+
 <style>
-  .st-google-map iframe {
-    width: 100%;
-    height: 500px;
-    display: block;
-    border: none;
+  /* Encabezado de la sección */
+  .st-map-section-header {
+    text-align: center;
+    padding: 40px 20px 0 20px;
   }
 
-  .st-google-map.st-type1 iframe {
+  .st-map-section-header h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e1e1e;
+    margin-bottom: 10px;
+  }
+
+  .st-map-subtitle {
+    font-size: 16px;
+    color: #666;
+  }
+
+  /* Selector de ubicaciones (pestañas) */
+  .st-location-selector {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 20px 20px 20px;
+    flex-wrap: wrap;
+  }
+
+  .st-location-tab {
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-width: 200px;
+    text-align: left;
+  }
+
+  .st-location-tab:hover {
+    border-color: #0cb8b6;
+    box-shadow: 0 4px 12px rgba(12, 184, 182, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .st-location-tab.st-active {
+    background: linear-gradient(135deg, #0cb8b6 0%, #0a9d9b 100%);
+    border-color: #0cb8b6;
+    color: white;
+    box-shadow: 0 4px 16px rgba(12, 184, 182, 0.3);
+  }
+
+  .st-location-tab-name {
+    display: block;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .st-location-tab-city {
+    display: block;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  .st-primary-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 18px;
+    color: #ffc107;
+  }
+
+  .st-active .st-primary-badge {
+    color: #fff;
+  }
+
+  /* Contenedores de mapas */
+  .st-google-map-wrapper {
+    position: relative;
+  }
+
+  .st-map-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .st-map-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    display: block;
+  }
+
+  .st-google-map-wrapper.st-type1 .st-map-container iframe {
     height: 600px;
   }
 
-  .st-google-map.st-type2 iframe {
+  .st-google-map-wrapper.st-type2 .st-map-container iframe {
     height: 400px;
   }
 
+  /* Botón de "Cómo llegar" */
+  .st-directions-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #0cb8b6;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .st-directions-btn:hover {
+    background: #0a9d9b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+
+  /* Responsive */
   @media (max-width: 768px) {
-    .st-google-map iframe {
+    .st-map-section-header h3 {
+      font-size: 24px;
+    }
+
+    .st-location-selector {
+      flex-direction: column;
+      gap: 10px;
+      padding: 0 15px 15px 15px;
+    }
+
+    .st-location-tab {
+      min-width: auto;
+      width: 100%;
+    }
+
+    .st-map-container iframe {
       height: 350px;
     }
 
-    .st-google-map.st-type1 iframe {
+    .st-google-map-wrapper.st-type1 .st-map-container iframe {
       height: 450px;
     }
 
-    .st-google-map.st-type2 iframe {
+    .st-google-map-wrapper.st-type2 .st-map-container iframe {
       height: 250px;
+    }
+
+    .st-directions-btn {
+      bottom: 15px;
+      right: 15px;
+      padding: 10px 20px;
+      font-size: 14px;
     }
   }
 </style>
