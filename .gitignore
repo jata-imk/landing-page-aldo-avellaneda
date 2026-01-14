@@ -33,3 +33,10 @@ pnpm-debug.log*
 public/project*.jpg
 public/project*_lg.jpg
 public/avatar*.png
+
+# composer dependencies
+vendor/
+composer.lock
+
+# API logs
+api/logs/*.log

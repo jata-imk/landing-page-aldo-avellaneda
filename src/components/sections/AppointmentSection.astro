@@ -29,7 +29,7 @@ const { lang = "es" } = Astro.props;
         >
         </div>
         <div class="st-seperator-center">
-          <img src="/icons/4.png" alt="icon" />
+          <img src="/my-icons/4.png" alt="icon" />
         </div>
         <div
           class="st-seperator-right wow fadeInRight"
@@ -145,24 +145,80 @@ const { lang = "es" } = Astro.props;
 <script>
   const form = document.getElementById("appointment-form") as HTMLFormElement;
 
+  // Endpoint API: localhost:8000 en dev, /api en producción
+  const API_ENDPOINT = import.meta.env.DEV
+    ? "http://localhost:8000/api/appointment.php"
+    : "/api/appointment.php";
+
   if (form) {
-    form.addEventListener("submit", (e) => {
+    // Estado del formulario
+    let isSubmitting = false;
+
+    // Elementos UI
+    const submitButton = form.querySelector(
+      'button[type="submit"]'
+    ) as HTMLButtonElement;
+    const originalButtonText = submitButton.textContent || "";
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Obtener datos del formulario
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
+      // Prevenir envíos múltiples
+      if (isSubmitting) return;
+      isSubmitting = true;
 
-      console.log("Solicitud de llamada gratuita:", data);
-      // TODO: Enviar datos a API
+      // UI feedback: deshabilitar botón y cambiar texto
+      submitButton.disabled = true;
+      const lang = document.documentElement.lang || "es";
+      submitButton.textContent =
+        lang === "es" ? "Enviando..." : "Sending...";
 
-      // Mostrar mensaje de éxito
-      alert(
-        "Solicitud enviada exitosamente. Una enfermera coordinadora se comunicará con usted pronto."
-      );
+      try {
+        // Obtener datos del formulario
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
 
-      // Resetear formulario
-      form.reset();
+        console.log("Enviando solicitud a:", API_ENDPOINT);
+
+        // Enviar a la API
+        const response = await fetch(API_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Éxito: mostrar mensaje y resetear formulario
+          alert(result.message);
+          form.reset();
+
+          // Opcional: scroll a la parte superior
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          // Error del servidor con mensaje específico
+          throw new Error(result.message || "Error desconocido");
+        }
+      } catch (error) {
+        // Error de red o del servidor
+        console.error("Error al enviar solicitud:", error);
+
+        const lang = document.documentElement.lang || "es";
+        const errorMessage =
+          lang === "es"
+            ? "Error al enviar la solicitud. Por favor intenta nuevamente o contáctanos directamente por WhatsApp."
+            : "Error sending request. Please try again or contact us directly via WhatsApp.";
+
+        alert(errorMessage);
+      } finally {
+        // Restaurar estado del botón
+        isSubmitting = false;
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
     });
   }
 
