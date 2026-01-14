@@ -120,7 +120,8 @@ const { lang = "es" } = Astro.props;
                   rows={10}
                   name="message"
                   placeholder={t("forms.appointment.messagePlaceholder", lang)}
-                  minlength="10"></textarea>
+                  minlength="10"
+                  required></textarea>
               </div>
             </div>
 
@@ -170,8 +171,7 @@ const { lang = "es" } = Astro.props;
       // UI feedback: deshabilitar botón y cambiar texto
       submitButton.disabled = true;
       const lang = document.documentElement.lang || "es";
-      submitButton.textContent =
-        lang === "es" ? "Enviando..." : "Sending...";
+      submitButton.textContent = lang === "es" ? "Enviando..." : "Sending...";
 
       try {
         // Obtener datos del formulario
